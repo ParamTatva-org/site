@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ParamTatva's visionary roadmap: 100 Vedic sages mapped to TIVRA AI evolution across 5 horizons of intelligence.">
+    <meta name="keywords" content="ParamTatva, Roadmap, TIVRA, Sanskrit AI, Vedic Sages, Foundation Models">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="ParamTatva Roadmap - 100 Sages, 5 Horizons">
+    <meta property="og:description"
+        content="A visionary roadmap mapping 100 Vedic sages to the evolution of TIVRA (Text, Image, Video, Robotics, Audio).">
+    <meta property="og:image" content="https://paramtatva.org/og-preview.jpg">
+    <meta property="og:url" content="https://paramtatva.org/roadmap.html">
+    <meta property="og:type" content="website">
+
+    <title>Roadmap | ParamTatva - 100 Sages, 5 Horizons of Intelligence</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>॥</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Roadmap-specific styles */
+        .roadmap-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            position: relative;
+            overflow: hidden;
+            padding: var(--space-2xl) var(--space-md);
+        }
+
+        .roadmap-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .roadmap-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .roadmap-title {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            color: var(--color-pure-white);
+            margin-bottom: var(--space-md);
+            letter-spacing: 2px;
+        }
+
+        .roadmap-subtitle {
+            font-size: 1.5rem;
+            color: var(--color-sacred-gold);
+            margin-bottom: var(--space-sm);
+            font-family: var(--font-heading);
+        }
+
+        .roadmap-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--color-silver);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .horizon-section {
+            padding: var(--space-2xl) 0;
+            position: relative;
+        }
+
+        .horizon-section:nth-child(odd) {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+        }
+
+        .horizon-section:nth-child(even) {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0a1a 100%);
+        }
+
+        .horizon-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .horizon-number {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-gold);
+            color: var(--color-cosmic-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 auto var(--space-md);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .horizon-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--color-pure-white);
+            margin-bottom: var(--space-sm);
+            letter-spacing: 2px;
+        }
+
+        .horizon-focus {
+            font-size: 1.2rem;
+            color: var(--color-sacred-gold);
+            margin-bottom: var(--space-xs);
+        }
+
+        .horizon-timeline {
+            font-size: 1rem;
+            color: var(--color-muted);
+            letter-spacing: 1px;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .model-card {
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.8) 0%, rgba(45, 27, 78, 0.6) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .model-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .model-card:hover::before {
+            left: 100%;
+        }
+
+        .model-card:hover {
+            border-color: var(--color-sacred-gold);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .model-name {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--color-sacred-gold);
+            margin-bottom: var(--space-xs);
+            letter-spacing: 1px;
+        }
+
+        .model-domain {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--color-sacred-gold);
+            font-size: 0.85rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-md);
+            letter-spacing: 0.5px;
+        }
+
+        .model-sage {
+            color: var(--color-silver);
+            margin-bottom: var(--space-sm);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .model-sage strong {
+            color: var(--color-light-gold);
+            font-family: var(--font-sanskrit);
+        }
+
+        .model-capabilities {
+            color: var(--color-soft-white);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .clusters-section {
+            padding: var(--space-2xl) 0;
+            background: linear-gradient(135deg, #0f0a1a 0%, #1a1a2e 100%);
+        }
+
+        .cluster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .cluster-card {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.05) 0%, rgba(45, 27, 78, 0.3) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            transition: all 0.3s ease;
+        }
+
+        .cluster-card:hover {
+            border-color: var(--color-sacred-gold);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .cluster-name {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--color-sacred-gold);
+            margin-bottom: var(--space-sm);
+        }
+
+        .cluster-count {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-sm);
+        }
+
+        .cluster-description {
+            color: var(--color-silver);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .cluster-focus {
+            color: var(--color-silver);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-title {
+                font-size: 2.5rem;
+            }
+
+            .roadmap-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .models-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cluster-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav-main">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-sanskrit">परमतत्त्व</span>
+                <span class="logo-english">ParamTatva</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#mission">Mission</a></li>
+                <li><a href="index.html#tivra">TIVRA</a></li>
+                <li><a href="index.html#lgm">LGM</a></li>
+                <li><a href="index.html#timeline">Timeline</a></li>
+                <li><a href="roadmap.html" class="nav-cta">Roadmap</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="roadmap-hero">
+        <div class="roadmap-hero-content">
+            <div class="hero-badge">॥ दिशा ॥</div>
+            <h1 class="roadmap-title">The 100 Sages Roadmap</h1>
+            <p class="roadmap-subtitle">5 Horizons of Intelligence</p>
+            <p class="roadmap-description">
+                A visionary roadmap for ParamTatva, mapping <strong>100 Vedic sages</strong> to the evolution of
+                <strong>TIVRA</strong> (Text, Image, Video, Robotics, Audio) — honoring ancient mastery over sound,
+                light, and the elements to power modern AI capabilities.
+            </p>
+        </div>
+    </section>
+
+    <!-- Horizon 1: TIVRA Foundation -->
+    <section class="horizon-section">
+        <div class="container">
+            <div class="horizon-header">
+                <div class="horizon-number">1</div>
+                <h2 class="horizon-title">The TIVRA Foundation</h2>
+                <p class="horizon-subtitle">The Elemental Series</p>
+                <p class="horizon-focus"><strong>Focus:</strong> Establishing State-of-the-Art (``SOTA) foundation
+                    models for the five core modalities.</p>
+                <p class="horizon-timeline"><strong>Timeline:</strong> Year 1–2</p>
+            </div>
+
+            <div class="models-grid">
+                <div class="model-card">
+                    <h3 class="model-name">VAK-1</h3>
+                    <span class="model-domain">Text (LLM)</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Vak Ambhrini</strong> (Seer of the <em>Devi Sukta</em>, the embodiment of
+                        Speech)
+                    </p>
+                    <p class="model-capabilities">
+                        The primary Large Language Model. High-context reasoning, multilingual Vedic-to-Modern
+                        translation, and semantic understanding.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">NARADA-X</h3>
+                    <span class="model-domain">Audio</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Narada</strong> (The divine communicator and musician)
+                    </p>
+                    <p class="model-capabilities">
+                        Text-to-Speech (TTS) and Speech-to-Text (STT) with emotional inflection, musical composition,
+                        and voice cloning.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">RUPA-BHRIGU</h3>
+                    <span class="model-domain">Image</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Bhrigu</strong> (Associated with fire/light and visualization)
+                    </p>
+                    <p class="model-capabilities">
+                        High-fidelity image generation, photorealistic rendering, and complex schematic visualization.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">VISHVA-VISION</h3>
+                    <span class="model-domain">Video</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Vishvamitra</strong> (The sage who created a parallel heaven/world)
+                    </p>
+                    <p class="model-capabilities">
+                        Text-to-Video generation, physics-compliant scene creation, and world-building for simulations.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">KRATU-BOT</h3>
+                    <span class="model-domain">Robotics (General)</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Kratu</strong> (One of the Saptarishis, name means "Action" or "Will")
+                    </p>
+                    <p class="model-capabilities">
+                        General purpose "brain" for robotics—navigation, object manipulation, and basic pathfinding.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horizon 2: Vidya Expansion -->
+    <section class="horizon-section">
+        <div class="container">
+            <div class="horizon-header">
+                <div class="horizon-number">2</div>
+                <h2 class="horizon-title">The Vidya Expansion</h2>
+                <p class="horizon-subtitle">Creation & Logic</p>
+                <p class="horizon-focus"><strong>Focus:</strong> Graduating from raw generation to complex, structured
+                    outputs like Code, Movies, and Mathematics.</p>
+                <p class="horizon-timeline"><strong>Timeline:</strong> Year 3–4</p>
+            </div>
+
+            <div class="models-grid">
+                <div class="model-card">
+                    <h3 class="model-name">GARGI-CODER</h3>
+                    <span class="model-domain">Code Generation</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Gargi Vachaknavi</strong> (Famous for her fierce logic and debate)
+                    </p>
+                    <p class="model-capabilities">
+                        Enterprise-level code generation, debugging, system architecture design, and formal verification
+                        of algorithms.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">BHARADVAJA-STUDIO</h3>
+                    <span class="model-domain">Movie Production</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Bharadvaja</strong> (A sage of vast learning and reception)
+                    </p>
+                    <p class="model-capabilities">
+                        End-to-end movie generation: Scriptwriting, character consistency, consistent lighting, and
+                        Foley sound integration.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">URVASHI-ART</h3>
+                    <span class="model-domain">Stylized Image</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Urvashi</strong> (The Apsara, symbol of aesthetic perfection)
+                    </p>
+                    <p class="model-capabilities">
+                        Specialized artistic style transfer, fashion design, architectural aesthetics, and UI/UX design
+                        generation.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">DIRGHATAMAS-MATH</h3>
+                    <span class="model-domain">Complex Math</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Dirghatamas</strong> (Seer of the <em>Asya Vamasya</em> riddles)
+                    </p>
+                    <p class="model-capabilities">
+                        Solving unsolved mathematical conjectures, cryptographic modeling, and advanced statistical
+                        prediction.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">SHUNASHEPA-SEC</h3>
+                    <span class="model-domain">Cybersecurity</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Shunahshepa</strong> (Known for being bound and released)
+                    </p>
+                    <p class="model-capabilities">
+                        AI for penetration testing, unbinding encryption, and securing network infrastructures.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horizon 3: Vigyan Frontier -->
+    <section class="horizon-section">
+        <div class="container">
+            <div class="horizon-header">
+                <div class="horizon-number">3</div>
+                <h2 class="horizon-title">The Vigyan Frontier</h2>
+                <p class="horizon-subtitle">Hard Sciences & Deep Tech</p>
+                <p class="horizon-focus"><strong>Focus:</strong> Specialized models for Physics, Space, Quantum, and
+                    Chemistry.</p>
+                <p class="horizon-timeline"><strong>Timeline:</strong> Year 5–7</p>
+            </div>
+
+            <div class="models-grid">
+                <div class="model-card">
+                    <h3 class="model-name">ATRI-ASTRO</h3>
+                    <span class="model-domain">Space Tech & Avionics</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Atri</strong> (Associated with the stars and cosmic order)
+                    </p>
+                    <p class="model-capabilities">
+                        Orbital mechanics calculation, satellite trajectory optimization, exoplanet data analysis, and
+                        propulsion modeling.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">KASHYAPA-BIO</h3>
+                    <span class="model-domain">Biology & Genetics</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Kashyapa</strong> (The progenitor of all living species)
+                    </p>
+                    <p class="model-capabilities">
+                        Protein folding, genomic sequencing analysis, CRISPR target identification, and synthetic
+                        biology design.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">CHYAVANA-CHEM</h3>
+                    <span class="model-domain">Chemistry & Materials</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Chyavana</strong> (The alchemist sage, restored to youth)
+                    </p>
+                    <p class="model-capabilities">
+                        Material science discovery, battery chemistry optimization, and molecular simulation for new
+                        alloys.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">DADHYAN-PHYSICS</h3>
+                    <span class="model-domain">High Energy Physics</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Dadhichi (Dadhyan)</strong> (Gave his bones/structure for the greater good)
+                    </p>
+                    <p class="model-capabilities">
+                        Particle physics simulation, fusion reactor stability control, and structural integrity
+                        analysis.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">SHAKTI-Q</h3>
+                    <span class="model-domain">Quantum Computing</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Shakti Vashishtha</strong> (Son of Vasistha, name means "Power/Energy")
+                    </p>
+                    <p class="model-capabilities">
+                        Quantum algorithm optimization, error correction in qubit streams, and post-quantum
+                        cryptography.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horizon 4: Dhanvantari Phase -->
+    <section class="horizon-section">
+        <div class="container">
+            <div class="horizon-header">
+                <div class="horizon-number">4</div>
+                <h2 class="horizon-title">The Dhanvantari Phase</h2>
+                <p class="horizon-subtitle">Medical & Life Care</p>
+                <p class="horizon-focus"><strong>Focus:</strong> Human health, longevity, and psychological well-being.
+                </p>
+                <p class="horizon-timeline"><strong>Timeline:</strong> Year 8–9</p>
+            </div>
+
+            <div class="models-grid">
+                <div class="model-card">
+                    <h3 class="model-name">APALA-DERM</h3>
+                    <span class="model-domain">Dermatology & Skin</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Apala</strong> (Healed of skin disease by Indra/Soma)
+                    </p>
+                    <p class="model-capabilities">
+                        Specialized AI for skin analysis, early cancer detection, and reconstructive surgery planning.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">AGASTYA-MED</h3>
+                    <span class="model-domain">General Medicine</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Agastya</strong> (Father of Siddha medicine and herbalism)
+                    </p>
+                    <p class="model-capabilities">
+                        Diagnostic AI, personalized medicine plans, drug interaction checking, and robotic surgery
+                        assistance.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">LOPA-PSYCH</h3>
+                    <span class="model-domain">Mental Health</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Lopamudra</strong> (Sage of relationships and subtle nuances)
+                    </p>
+                    <p class="model-capabilities">
+                        Nuanced conversational AI for therapy, cognitive behavioral assistance, and emotional pattern
+                        recognition.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">ASHVINA-RESCUE</h3>
+                    <span class="model-domain">Emergency Response</span>
+                    <p class="model-sage">
+                        Inspired by <strong>The Ashvins</strong> (Twin physicians of the gods, rescuers)
+                    </p>
+                    <p class="model-capabilities">
+                        Real-time trauma analysis for ambulances, disaster response coordination, and triage robotics.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horizon 5: Grihastha Integration -->
+    <section class="horizon-section">
+        <div class="container">
+            <div class="horizon-header">
+                <div class="horizon-number">5</div>
+                <h2 class="horizon-title">The Grihastha Integration</h2>
+                <p class="horizon-subtitle">Home & Lifestyle</p>
+                <p class="horizon-focus"><strong>Focus:</strong> Bringing TIVRA into the home for comfort, management,
+                    and elderly care.</p>
+                <p class="horizon-timeline"><strong>Timeline:</strong> Year 10+</p>
+            </div>
+
+            <div class="models-grid">
+                <div class="model-card">
+                    <h3 class="model-name">MAITREYI-HOME</h3>
+                    <span class="model-domain">Home Management</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Maitreyi</strong> (Symbol of wisdom in the household)
+                    </p>
+                    <p class="model-capabilities">
+                        Smart home orchestration, energy efficiency optimization, budget/finance management, and family
+                        scheduling.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">ADITI-CARE</h3>
+                    <span class="model-domain">Elderly & Child Care</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Aditi</strong> (The Primal Mother)
+                    </p>
+                    <p class="model-capabilities">
+                        Companion robotics, fall detection, medication reminders, and empathetic conversation for the
+                        elderly.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">INDRANI-SECURE</h3>
+                    <span class="model-domain">Home Security</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Indrani</strong> (Queen of power and protection)
+                    </p>
+                    <p class="model-capabilities">
+                        Predictive home security, threat assessment, and automated perimeter monitoring robotics.
+                    </p>
+                </div>
+
+                <div class="model-card">
+                    <h3 class="model-name">ANNAPURNA-KITCHEN</h3>
+                    <span class="model-domain">Food & Nutrition</span>
+                    <p class="model-sage">
+                        Inspired by <strong>Vishvavara</strong> (Who performed sacrifices/cooking)
+                    </p>
+                    <p class="model-capabilities">
+                        Robotic kitchen assistance, nutritional planning based on biometrics, and automated inventory
+                        management.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sage Clusters -->
+    <section class="clusters-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">॥ समूह ॥</span>
+                <h2 class="section-title">The 100 Sages Release Strategy</h2>
+                <p class="section-subtitle">Fine-tunes & LoRAs Under Major Releases</p>
+            </div>
+
+            <p
+                style="text-align: center; max-width: 800px; margin: 0 auto var(--space-xl); color: var(--color-silver); font-size: 1.1rem; line-height: 1.8;">
+                To utilize all 100 sages, ParamTatva will release specific <strong>Fine-tunes</strong> or
+                <strong>LoRAs</strong>
+                (Low-Rank Adaptations) under the banner of the major releases.
+            </p>
+
+            <div class="cluster-grid">
+                <div class="cluster-card">
+                    <h3 class="cluster-name">The Angirasa Cluster</h3>
+                    <span class="cluster-count">30+ Models</span>
+                    <p class="cluster-description">
+                        Released under <strong>DADHYAN-PHYSICS</strong>, these models (named after <em>Kutsa, Ayasya,
+                            Virupa,</em> etc.)
+                        will focus on various sub-branches of Physics and Energy.
+                    </p>
+                    <p class="cluster-focus">
+                        <strong>Focus Areas:</strong> Thermodynamics, Electromagnetism, Fluid Dynamics
+                    </p>
+                </div>
+
+                <div class="cluster-card">
+                    <h3 class="cluster-name">The Vashishtha Cluster</h3>
+                    <span class="cluster-count">20+ Models</span>
+                    <p class="cluster-description">
+                        Released under <strong>KASHYAPA-BIO</strong>, these models (named after <em>Shakti, Parashara,
+                            Vyasa</em>)
+                        will focus on Genetics and Ecology.
+                    </p>
+                    <p class="cluster-focus">
+                        <strong>Focus Areas:</strong> Genomics, Evolutionary Biology, Ecology
+                    </p>
+                </div>
+
+                <div class="cluster-card">
+                    <h3 class="cluster-name">The Kanva Cluster</h3>
+                    <span class="cluster-count">15+ Models</span>
+                    <p class="cluster-description">
+                        Released under <strong>NARADA-X</strong>, these models (named after <em>Medhatithi, Sobhari,
+                            Pragatha</em>)
+                        will focus on Acoustics, Sonar, and Waveform analysis.
+                    </p>
+                    <p class="cluster-focus">
+                        <strong>Focus Areas:</strong> Sound Engineering, Sonar, Signal Processing
+                    </p>
+                </div>
+
+                <div class="cluster-card">
+                    <h3 class="cluster-name">The Bhargava Cluster</h3>
+                    <span class="cluster-count">15+ Models</span>
+                    <p class="cluster-description">
+                        Released under <strong>CHYAVANA-CHEM</strong>, these models (named after <em>Jamadagni, Vena,
+                            Gritsamada</em>)
+                        will focus on Pharmacology and Chemical Engineering.
+                    </p>
+                    <p class="cluster-focus">
+                        <strong>Focus Areas:</strong> Drug Discovery, Chemical Synthesis, Materials Engineering
+                    </p>
+                </div>
+            </div>
+
+            <div
+                style="text-align: center; margin-top: var(--space-xl); padding: var(--space-xl); background: linear-gradient(145deg, rgba(212, 175, 55, 0.1) 0%, rgba(45, 27, 78, 0.2) 100%); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: var(--radius-xl);">
+                <h3
+                    style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--color-pure-white); margin-bottom: var(--space-sm);">
+                    Immortalizing Vedic Wisdom in Digital Form
+                </h3>
+                <p style="font-size: 1.1rem; color: var(--color-silver); max-width: 700px; margin: 0 auto;">
+                    This roadmap ensures that every sage's name is immortalized in a digital function that mirrors their
+                    ancient contribution to Vedic wisdom.
+                </p>
+                <a href="index.html#tivra" class="btn-primary"
+                    style="margin-top: var(--space-lg); display: inline-block;">
+                    Explore Current TIVRA Models
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">
+                        <span class="title-sanskrit">परमतत्त्व</span>
+                        <span class="title-english">ParamTatva</span>
+                    </h3>
+                    <p class="footer-description">
+                        The Primordial Energy System of the Universe
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#tivra">TIVRA Models</a></li>
+                        <li><a href="index.html#lgm">LGM Explainer</a></li>
+                        <li><a href="index.html#timeline">Timeline</a></li>
+                        <li><a href="roadmap.html">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://huggingface.co/ParamTatva" target="_blank"
+                                rel="noopener noreferrer">HuggingFace</a></li>
+                        <li><a href="https://huggingface.co/spaces/ParamTatva/Yantriki-Robotics" target="_blank"
+                                rel="noopener noreferrer">Yantriki Robotics</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ParamTatva.org | Dedicated to Sadgurudev Nikhileswarananda</p>
+                <p class="sanskrit-footer">॥ ॐ नमः शिवाय ॥</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
