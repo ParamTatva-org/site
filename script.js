@@ -434,3 +434,57 @@ Sadgurudev Nikhileswarananda
 'color: #c0c0c0; font-size: 14px;',
 'color: #ff9933; font-size: 16px; font-family: serif;'
 );
+
+/* TIVRA Accordion Functionality */
+function initTIVRAAccordion() {
+    const tivraCards = document.querySelectorAll('.tivra-card');
+    
+    tivraCards.forEach(card => {
+        const header = card.querySelector('.card-header');
+        const toggleBtn = card.querySelector('.toggle-btn');
+        
+        const toggleCard = (e) => {
+            e.stopPropagation();
+            tivraCards.forEach(otherCard => {
+                if (otherCard !== card && otherCard.classList.contains('active')) {
+                    otherCard.classList.remove('active');
+                }
+            });
+            card.classList.toggle('active');
+            const isActive = card.classList.contains('active');
+            toggleBtn.setAttribute('aria-expanded', isActive);
+        };
+        
+        header.addEventListener('click', toggleCard);
+        header.setAttribute('tabindex', '0');
+        header.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleCard(e);
+            }
+        });
+    });
+    
+    const benchmarkCards = document.querySelectorAll('.benchmark-card');
+    benchmarkCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        const parentCard = card.closest('.tivra-card');
+        const observer = new MutationObserver(() => {
+            if (parentCard.classList.contains('active')) {
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            }
+        });
+        observer.observe(parentCard, { attributes: true, attributeFilter: ['class'] });
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTIVRAAccordion);
+} else {
+    initTIVRAAccordion();
+}
