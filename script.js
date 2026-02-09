@@ -470,13 +470,25 @@ function initTIVRAAccordion() {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         const parentCard = card.closest('.tivra-card');
+        
+        // Helper function to animate card in
+        const animateIn = () => {
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        };
+        
+        // Check if parent is already active on page load
+        if (parentCard.classList.contains('active')) {
+            animateIn();
+        }
+        
+        // Watch for future changes
         const observer = new MutationObserver(() => {
             if (parentCard.classList.contains('active')) {
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
+                animateIn();
             }
         });
         observer.observe(parentCard, { attributes: true, attributeFilter: ['class'] });
