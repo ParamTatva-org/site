@@ -5,17 +5,17 @@
 /* CSS Variables - Design Tokens */
 :root {
   /* Sacred Color Palette */
-  --color-cosmic-black: #0a0a0f;
-  --color-deep-indigo: #1a1a2e;
-  --color-mystical-purple: #2d1b4e;
+  --color-cosmic-black: #02040A; /* Midnight blue base */
+  --color-deep-indigo: #0A0F1D;  /* Soft elevated blue */
+  --color-mystical-purple: #1A1235;
   --color-sacred-gold: #d4af37;
   --color-light-gold: #f4d03f;
   --color-divine-orange: #e67e22;
   --color-saffron: #ff9933;
   --color-pure-white: #ffffff;
-  --color-soft-white: #f5f5f5;
-  --color-silver: #c0c0c0;
-  --color-muted: #8892a0;
+  --color-soft-white: #f8fafc;
+  --color-silver: #94a3b8;
+  --color-muted: #64748b;
 
   /* Gradients */
   --gradient-gold: linear-gradient(
@@ -44,7 +44,7 @@
   /* Typography */
   --font-sanskrit: "Noto Sans Devanagari", sans-serif;
   --font-heading: "Cinzel", serif;
-  --font-body: "Cormorant Garamond", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -55,10 +55,10 @@
   --space-2xl: 8rem;
 
   /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
 
   /* Shadows */
   --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.3);
@@ -419,12 +419,13 @@ body {
   align-items: center;
   gap: var(--space-xs);
   padding: 1rem 2.5rem;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  letter-spacing: 2px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 1px;
   text-decoration: none;
-  border-radius: var(--radius-md);
-  transition: all 0.3s ease;
+  border-radius: 9999px; /* Pill shape */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   border: none;
 }
@@ -433,12 +434,12 @@ body {
   background: var(--gradient-gold);
   color: var(--color-cosmic-black);
   font-weight: 600;
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
 }
 
 .btn-secondary {
@@ -613,14 +614,17 @@ body {
 }
 
 .mission-card {
-  background: var(--gradient-card);
-  border: 1px solid rgba(212, 175, 55, 0.1);
+  background: rgba(10, 15, 29, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
   text-align: center;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .mission-card::before {
@@ -1557,12 +1561,18 @@ body {
 }
 
 .footer-main {
+  background: var(--color-cosmic-black);
+  padding: var(--space-2xl) 0 var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-grid {
   display: grid;
   grid-template-columns: 1.5fr 2fr;
   gap: var(--space-xl);
   margin-bottom: var(--space-lg);
   padding-bottom: var(--space-lg);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-logo {
@@ -1683,7 +1693,7 @@ body {
     text-align: center;
   }
 
-  .footer-main {
+  .footer-grid {
     grid-template-columns: 1fr;
   }
 }
