@@ -1,0 +1,97 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Sassembly",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#registers"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#labels"
+    },
+    {
+      "include": "#karakas"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.semicolon.sassembly",
+          "match": ";.*$"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.sassembly",
+          "match": "\\b(आगच्छ|गच्छ|कुरु|ददाति|पश्यति|वदति|शृणोति|तिष्ठति|रक्षति|हन्ति)\\b"
+        },
+        {
+          "name": "keyword.other.directive.sassembly",
+          "match": "\\.(text|data|global|section)\\b"
+        }
+      ]
+    },
+    "registers": {
+      "patterns": [
+        {
+          "name": "variable.language.register.sassembly",
+          "match": "\\b(शून्य|कर्तृ|कर्म|करण|सम्प्र|अपा|सम्ब|अधि|तर्क१|तर्क२|तर्क३|तर्क४|तर्क५|तर्क६|तर्क७|तर्क८)\\b"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.sassembly",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.sassembly",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hex.sassembly",
+          "match": "0[xX][0-9a-fA-F]+"
+        },
+        {
+          "name": "constant.numeric.decimal.sassembly",
+          "match": "\\b[0-9]+\\b"
+        }
+      ]
+    },
+    "labels": {
+      "patterns": [
+        {
+          "name": "entity.name.function.label.sassembly",
+          "match": "^[\\p{L}_][\\p{L}\\p{N}_]*:"
+        }
+      ]
+    },
+    "karakas": {
+      "patterns": [
+        {
+          "name": "entity.other.attribute-name.karaka.sassembly",
+          "match": "(म्|न|त्|य्|ए)\\b"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.sas"
+}

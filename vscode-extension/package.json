@@ -1,0 +1,66 @@
+{
+  "name": "sanskriti",
+  "displayName": "Sanskriti & Sassembly",
+  "description": "Official VS Code extension for Sanskriti builder and Sassembly language",
+  "version": "1.0.0",
+  "publisher": "ParamTatva",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Machine Learning"
+  ],
+  "activationEvents": [
+    "onLanguage:sassembly"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "sassembly",
+        "aliases": [
+          "Sassembly",
+          "sas"
+        ],
+        "extensions": [
+          ".sas"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sassembly",
+        "scopeName": "source.sas",
+        "path": "./syntaxes/sassembly.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "sanskriti.installToolchain",
+        "title": "Sanskriti: Install Toolchain"
+      },
+      {
+        "command": "sanskriti.buildSanskriti",
+        "title": "Sanskriti: Build File"
+      },
+      {
+        "command": "sassembly.runYantra",
+        "title": "Sassembly: Run in Yantra"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^16.x",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.1.3",
+    "@vscode/vsce": "^2.19.0"
+  }
+}
