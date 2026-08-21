@@ -1,0 +1,9 @@
+include:
+  - bin
+  - tools
+  - js
+  - css
+
+exclude:
+  - "*.md"
+  - SOCIAL_MEDIA_README.md
