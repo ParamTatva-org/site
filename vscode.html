@@ -2,6 +2,11 @@
 <html lang="en">
 
 <head>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanskriti VS Code Extension | ParamTatva</title>
@@ -23,6 +28,8 @@
         <span class="logo-english">ParamTatva</span>
       </a>
       <ul class="nav-links">
+      <li><button id="theme-toggle" class="nav-btn" title="Toggle Theme">🌓</button></li>
+      
         <li><a href="learn.html">Academy 📚</a></li>
         <li><a href="builder.html">Builder ✨</a></li>
         <li><a href="playground.html">Playground ⚡</a></li>
@@ -54,7 +61,7 @@
           </p>
 
           <div style="margin-top: 2rem; padding: 2rem; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 12px; text-align: center;">
-            <h3 style="margin-top: 0; color: #fff;">Download Extension</h3>
+            <h3 style="margin-top: 0; color: var(--dev-text-main);">Download Extension</h3>
             <p style="color: var(--dev-text-muted); margin-bottom: 1.5rem;">Requires Visual Studio Code version 1.80.0 or higher.</p>
             <a href="vscode-extension/sanskriti-1.0.0.vsix" class="btn-dev btn-dev-primary" download style="display: inline-block; padding: 1rem 2.5rem; font-size: 1.2rem;">
               ⬇️ Download sanskriti-1.0.0.vsix

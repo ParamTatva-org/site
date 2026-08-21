@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="sa">
 <head>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sassembly Web IDE & Simulator | ParamTatva Developer Portal</title>
@@ -30,6 +35,8 @@
       <span class="portal-badge">यन्त्र & सस्सेम्बली IDE</span>
     </a>
     <ul class="dev-nav-links">
+      <li><button id="theme-toggle" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--dev-text-main);">🌓</button></li>
+      
       <li><a href="index.html">Home</a></li>
       <li><a href="developer.html">Developer Hub</a></li>
       <li><a href="learn.html">Learning Academy 📚</a></li>
@@ -137,16 +144,16 @@
       <h3 style="color: var(--dev-gold); margin-top: 0;">Sassembly Language Primer</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; font-size: 0.95rem; color: var(--dev-text-muted);">
         <div>
-          <h4 style="color: #fff; margin-bottom: 0.5rem;">१. वाक्य (Sentence Structure)</h4>
+          <h4 style="color: var(--dev-text-main); margin-bottom: 0.5rem;">१. वाक्य (Sentence Structure)</h4>
           <p>Each instruction starts with a <strong>Verb</strong> (mnemonic), followed by operands marked with kāraka sigils, terminated by <code>।</code> daṇḍa.</p>
           <code style="color: var(--dev-cyan);">योगः कम् खन गन ।</code> &rarr; <code>क &larr; ख + ग</code>
         </div>
         <div>
-          <h4 style="color: #fff; margin-bottom: 0.5rem;">२. पञ्च-कारकाणि (5 Kāraka Sigils)</h4>
+          <h4 style="color: var(--dev-text-main); margin-bottom: 0.5rem;">२. पञ्च-कारकाणि (5 Kāraka Sigils)</h4>
           <p><strong>म्</strong> Destination (कर्म) &bull; <strong>न</strong> Source (करण) &bull; <strong>त्</strong> Load Address (अपादान) &bull; <strong>य्</strong> Store Address (सम्प्रदान) &bull; <strong>ए</strong> Locus (अधिकरण).</p>
         </div>
         <div>
-          <h4 style="color: #fff; margin-bottom: 0.5rem;">३. सङ्ख्याः (Numerals)</h4>
+          <h4 style="color: var(--dev-text-main); margin-bottom: 0.5rem;">३. सङ्ख्याः (Numerals)</h4>
           <p>Hexadecimal prefix <code>०षोड्</code> (digits ०-९, अ, आ, इ, ई, उ, ऊ) &bull; Binary <code>०द्वि</code> &bull; Octal <code>०अष्ट</code> &bull; Decimal digits ०-९.</p>
         </div>
       </div>

@@ -3,6 +3,29 @@
    ========================================================================== */
 
 :root {
+  --dev-bg: #F8FAFC;
+  --dev-surface: rgba(255, 255, 255, 0.95);
+  --dev-surface-card: #FFFFFF;
+  --dev-surface-elevated: #F1F5F9;
+  --dev-border: rgba(0, 0, 0, 0.08);
+  --dev-border-glow: rgba(14, 165, 233, 0.2);
+  --dev-gold: #b8860b;
+  --dev-gold-light: #d4af37;
+  --dev-gold-dark: #8b6508;
+  --dev-cyan: #0ea5e9;
+  --dev-purple: #8b5cf6;
+  --dev-green: #059669;
+  --dev-red: #dc2626;
+  --dev-text-main: #0F172A;
+  --dev-text-muted: #475569;
+  --dev-text-dim: #64748b;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  --font-sanskrit: 'Noto Sans Devanagari', 'Cinzel', serif;
+  --font-body: 'Inter', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+}
+
+[data-theme="dark"] {
   --dev-bg: #050714;
   --dev-surface: rgba(12, 18, 45, 0.75);
   --dev-surface-card: rgba(18, 25, 60, 0.65);
@@ -19,10 +42,6 @@
   --dev-text-main: #f8fafc;
   --dev-text-muted: #94a3b8;
   --dev-text-dim: #64748b;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
-  --font-sanskrit: 'Noto Sans Devanagari', 'Cinzel', serif;
-  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
 }
 
 /* Base Developer Layout */
@@ -36,7 +55,7 @@
   overflow-x: hidden;
 }
 
-/* Background Cosmic Canvas */
+/* Background Cosmic Canvas (Light Mode) */
 .dev-cosmic-bg {
   position: fixed;
   top: 0;
@@ -44,9 +63,14 @@
   width: 100vw;
   height: 100vh;
   z-index: -1;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 75%),
+              linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .dev-cosmic-bg {
   background: radial-gradient(circle at 50% 20%, rgba(20, 30, 70, 0.5) 0%, rgba(5, 7, 20, 0.95) 75%),
               linear-gradient(180deg, #050714 0%, #03040c 100%);
-  pointer-events: none;
 }
 
 .dev-grid-overlay {
@@ -56,9 +80,15 @@
   width: 100%;
   height: 100%;
   background-image: 
+    linear-gradient(to right, rgba(184, 134, 11, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184, 134, 11, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+[data-theme="dark"] .dev-grid-overlay {
+  background-image: 
     linear-gradient(to right, rgba(212, 175, 55, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
 }
 
 /* Developer Header / Navigation */
@@ -66,7 +96,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(6, 9, 25, 0.85);
+  background: var(--dev-surface);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--dev-border);
@@ -127,7 +157,13 @@
 
 .dev-nav-links a:hover,
 .dev-nav-links a.active {
-  color: #fff;
+  color: var(--dev-text-main);
+  background: rgba(184, 134, 11, 0.05);
+  border-color: rgba(184, 134, 11, 0.2);
+}
+
+[data-theme="dark"] .dev-nav-links a:hover,
+[data-theme="dark"] .dev-nav-links a.active {
   background: rgba(255, 215, 0, 0.1);
   border-color: rgba(255, 215, 0, 0.3);
 }
@@ -180,6 +216,12 @@
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 1rem;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #b8860b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .dev-hero h1 {
   background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #ffd700 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -242,7 +284,7 @@
 .dev-card h3 {
   font-size: 1.3rem;
   margin: 0 0 0.5rem;
-  color: #fff;
+  color: var(--dev-text-main);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -274,21 +316,26 @@
 
 /* Code Snippets & Highlighting */
 .dev-code-block {
-  background: #060919;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: #F1F5F9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   margin: 1rem 0;
   overflow: hidden;
   font-family: var(--font-mono);
 }
 
+[data-theme="dark"] .dev-code-block {
+  background: #060919;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
 .dev-code-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(15, 23, 42, 0.8);
+  background: #E2E8F0;
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   font-size: 0.8rem;
   color: var(--dev-text-dim);
 }
@@ -297,7 +344,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--dev-gold);
+  color: var(--dev-gold-dark);
 }
 
 .dev-code-content {
@@ -306,6 +353,10 @@
   overflow-x: auto;
   font-size: 0.95rem;
   line-height: 1.6;
+  color: #0F172A;
+}
+
+[data-theme="dark"] .dev-code-content {
   color: #e2e8f0;
 }
 
@@ -358,7 +409,7 @@
   font-family: var(--font-sanskrit);
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--dev-text-main);
   margin-bottom: 0.25rem;
 }
 
@@ -402,7 +453,7 @@
 }
 
 .ide-toolbar {
-  background: rgba(10, 15, 35, 0.9);
+  background: var(--dev-surface-card);
   border-bottom: 1px solid var(--dev-border);
   padding: 0.75rem 1rem;
   display: flex;
@@ -413,9 +464,9 @@
 }
 
 .ide-select {
-  background: #060919;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: #fff;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--dev-text-main);
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
   font-size: 0.85rem;
@@ -430,9 +481,9 @@
 }
 
 .btn-dev {
-  background: rgba(255, 215, 0, 0.1);
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  color: #fff;
+  background: rgba(184, 134, 11, 0.05);
+  border: 1px solid rgba(184, 134, 11, 0.2);
+  color: var(--dev-text-main);
   padding: 0.4rem 0.9rem;
   border-radius: 6px;
   font-size: 0.85rem;
@@ -464,7 +515,7 @@
 
 /* Quick Token Ribbon */
 .token-ribbon {
-  background: rgba(6, 9, 20, 0.8);
+  background: var(--dev-surface);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   padding: 0.4rem 0.75rem;
   display: flex;
@@ -486,9 +537,9 @@
 }
 
 .token-pill:hover {
-  background: rgba(0, 240, 255, 0.15);
+  background: rgba(14, 165, 233, 0.1);
   border-color: var(--dev-cyan);
-  color: #fff;
+  color: var(--dev-text-main);
 }
 
 .token-pill.sigil {
@@ -553,7 +604,7 @@
 }
 
 .output-header {
-  background: rgba(10, 15, 35, 0.9);
+  background: var(--dev-surface-card);
   padding: 0.5rem 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
@@ -574,14 +625,19 @@
 
 .terminal-display {
   flex: 1;
-  background: #020308;
+  background: #F1F5F9;
   padding: 1rem;
   font-family: var(--font-mono);
   font-size: 1.1rem;
-  color: #4ade80;
+  color: #0F172A;
   overflow-y: auto;
   white-space: pre-wrap;
   min-height: 100px;
+}
+
+[data-theme="dark"] .terminal-display {
+  background: #020308;
+  color: #4ade80;
 }
 
 .surface-display {
@@ -675,9 +731,9 @@
 
 .ref-search-box {
   width: 100%;
-  background: #060919;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: #fff;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--dev-text-main);
   padding: 0.75rem 1.2rem;
   border-radius: 8px;
   font-size: 1rem;
@@ -693,7 +749,7 @@
 
 /* Sanskriti AI Studio Box */
 .ai-studio-box {
-  background: linear-gradient(135deg, rgba(20, 25, 60, 0.8) 0%, rgba(10, 15, 40, 0.95) 100%);
+  background: var(--dev-surface-elevated);
   border: 1px solid var(--dev-border-glow);
   border-radius: 16px;
   padding: 2.5rem;
@@ -710,9 +766,9 @@
 
 .ai-prompt-input {
   flex: 1;
-  background: rgba(5, 7, 20, 0.8);
-  border: 1px solid rgba(0, 240, 255, 0.3);
-  color: #fff;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--dev-text-main);
   padding: 0.9rem 1.25rem;
   border-radius: 8px;
   font-size: 1.05rem;
@@ -748,19 +804,22 @@
    ========================================================================== */
 .build-steps-section {
   padding: 5rem 0 6rem;
-  background: linear-gradient(180deg, rgba(6, 9, 25, 0.95) 0%, rgba(12, 18, 50, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.85) 100%);
   border-top: 1px solid var(--dev-border);
   border-bottom: 1px solid var(--dev-border);
   position: relative;
   overflow: hidden;
 }
 
+[data-theme="dark"] .build-steps-section {
+  background: linear-gradient(180deg, rgba(6, 9, 25, 0.95) 0%, rgba(12, 18, 50, 0.85) 100%);
+}
+
 .build-steps-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
-  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 5rem 2rem;
+  margin-top: 6rem;
   position: relative;
 }
 
@@ -777,43 +836,58 @@
 }
 
 .build-step {
-  flex: 1;
   text-align: center;
   position: relative;
   z-index: 1;
   background: var(--dev-surface-card);
-  padding: 2.5rem 1.5rem 2rem;
+  padding: 3.5rem 1.5rem 2rem;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .build-step:hover {
   transform: translateY(-5px);
   border-color: var(--dev-cyan);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+[data-theme="dark"] .build-step {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .build-step:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 240, 255, 0.1);
 }
 
 .build-step-number {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   background: var(--dev-bg);
   border: 2px solid var(--dev-cyan);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: -4.5rem auto 1.5rem;
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--font-sanskrit);
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--dev-gold);
   box-shadow: 0 0 20px rgba(0, 240, 255, 0.2), inset 0 0 15px rgba(0, 240, 255, 0.1);
+  z-index: 2;
 }
 
 .build-step h3 {
   font-family: var(--font-heading);
-  color: #fff;
+  color: var(--dev-text-main);
   font-size: 1.3rem;
   margin-bottom: 1rem;
 }
@@ -824,17 +898,8 @@
   line-height: 1.6;
 }
 
-@media (max-width: 900px) {
-  .build-steps-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 4rem;
-  }
+@media (max-width: 1200px) {
   .build-steps-container::before {
-    display: none;
-  }
-  .build-step {
-    width: 100%;
-    max-width: 400px;
+    display: none; /* Hide connector line when wrapping */
   }
 }

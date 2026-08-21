@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="sa">
 <head>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sassembly Language Learning Academy | ParamTatva.org</title>
@@ -61,7 +66,7 @@
       transition: all 0.15s ease;
     }
     .learn-nav-item:hover, .learn-nav-item.active {
-      color: #fff;
+      color: var(--dev-text-main);
       background: rgba(0, 240, 255, 0.12);
       border-left: 3px solid var(--dev-cyan);
     }
@@ -74,7 +79,7 @@
       scroll-margin-top: 100px;
     }
     .quiz-box {
-      background: rgba(10, 15, 35, 0.9);
+      background: var(--dev-surface-elevated);
       border: 1px solid rgba(0, 240, 255, 0.3);
       border-radius: 10px;
       padding: 1.25rem;
@@ -83,7 +88,7 @@
     .quiz-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #fff;
+      color: var(--dev-text-main);
       padding: 0.5rem 1rem;
       border-radius: 6px;
       cursor: pointer;
@@ -114,6 +119,8 @@
       <span class="portal-badge">Learning Academy</span>
     </a>
     <ul class="dev-nav-links">
+      <li><button id="theme-toggle" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--dev-text-main);">🌓</button></li>
+      
       <li><a href="index.html">Home</a></li>
       <li><a href="developer.html">Developer Hub</a></li>
       <li><a href="learn.html" class="active">Learning Academy 📚</a></li>
@@ -180,7 +187,7 @@
         <!-- Lesson 1 -->
         <article class="lesson-section" id="lesson-1">
           <span class="portal-badge">पाठ १ (Lesson 1)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">The Sanskrit Sentence (वाक्य) & First Verbs</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">The Sanskrit Sentence (वाक्य) & First Verbs</h2>
           <p>
             In Sassembly, every instruction is structured as a complete Sanskrit sentence (वाक्य). Unlike Western assembly languages that rely on rigid syntax like <code>ADD R1, R2, R3</code> or bracketed memory operands <code>[R1 + 0x8]</code>, Sassembly follows natural Sanskrit grammar:
           </p>
@@ -212,7 +219,7 @@
         <!-- Lesson 2 -->
         <article class="lesson-section" id="lesson-2">
           <span class="portal-badge">पाठ २ (Lesson 2)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">The 5 Kāraka Sigils (पञ्च-कारकाणि)</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">The 5 Kāraka Sigils (पञ्च-कारकाणि)</h2>
           <p>
             Operand roles in Sassembly are marked by <strong>kāraka sigils</strong> (derived from Sanskrit noun declensions / Vibhakti) rather than positional ordering:
           </p>
@@ -252,7 +259,7 @@
         <!-- Lesson 3 -->
         <article class="lesson-section" id="lesson-3">
           <span class="portal-badge">पाठ ३ (Lesson 3)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">The 32 RV64 Registers (३२ कोष्ठकाणि)</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">The 32 RV64 Registers (३२ कोष्ठकाणि)</h2>
           <p>
             All 32 general-purpose 64-bit integer registers have authentic Sanskrit names mapped directly to the standard RISC-V ABI:
           </p>
@@ -270,7 +277,7 @@
         <!-- Lesson 4 -->
         <article class="lesson-section" id="lesson-4">
           <span class="portal-badge">पाठ ४ (Lesson 4)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Sanskrit Numerals (सङ्ख्याः)</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Sanskrit Numerals (सङ्ख्याः)</h2>
           <p>
             Sassembly provides explicit radix prefixes with Devanagari numerals:
           </p>
@@ -285,7 +292,7 @@
         <!-- Lesson 5 -->
         <article class="lesson-section" id="lesson-5">
           <span class="portal-badge">पाठ ५ (Lesson 5)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Directives & Sections (निर्देशाः)</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Directives & Sections (निर्देशाः)</h2>
           <p>
             Directives give instructions to the assembler (<code>साधनम्</code>) and are wrapped in double daṇḍas (<code>॥ ... ॥</code>):
           </p>
@@ -308,7 +315,7 @@
         <!-- Lesson 6 -->
         <article class="lesson-section" id="lesson-6">
           <span class="portal-badge">पाठ ६ (Lesson 6)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Arithmetic, Logic & Bitwise Shifts</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Arithmetic, Logic & Bitwise Shifts</h2>
           <p>
             Sassembly provides 49 mnemonic families covering all RV64GC operations:
           </p>
@@ -322,7 +329,7 @@
         <!-- Lesson 7 -->
         <article class="lesson-section" id="lesson-7">
           <span class="portal-badge">पाठ ७ (Lesson 7)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Memory Hierarchy & Sizing Extents (व्याप्ति)</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Memory Hierarchy & Sizing Extents (व्याप्ति)</h2>
           <p>
             Sizing suffixes (<em>Vyāpti</em>) determine the bit width of instructions:
           </p>
@@ -341,7 +348,7 @@
         <!-- Lesson 8 -->
         <article class="lesson-section" id="lesson-8">
           <span class="portal-badge">पाठ ८ (Lesson 8)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Control Flow, Branches & Loops (नियन्त्रण-प्रवाहः)</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Control Flow, Branches & Loops (नियन्त्रण-प्रवाहः)</h2>
           <p>
             Conditional branches compare two values and jump to a label (marked by <code>नामपदम्ॱॱ</code>):
           </p>
@@ -357,7 +364,7 @@
         <!-- Lesson 9 -->
         <article class="lesson-section" id="lesson-9">
           <span class="portal-badge">पाठ ९ (Lesson 9)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Akṣara Normalisation & Orthographic Closure</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Akṣara Normalisation & Orthographic Closure</h2>
           <p>
             In Sassembly, <strong>the atom of text is the Akṣara cluster</strong>, not individual byte code points. <code>क्ष</code> is treated as a single cluster. This eliminates homoglyph attacks and bidirectional unicode overrides structurally at the compiler level. Zero foreign ASCII characters may appear in Sassembly source.
           </p>
@@ -366,7 +373,7 @@
         <!-- Lesson 10 -->
         <article class="lesson-section" id="lesson-10">
           <span class="portal-badge">पाठ १० (Lesson 10)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Calling Conventions & Stack Frame Management</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Calling Conventions & Stack Frame Management</h2>
           <p>
             Function arguments are passed in <code>अर्थ०..अर्थ७</code>. Before calling a nested function, the caller must preserve the return address (<code>पुनःस्थानम्</code>) on the stack using <code>स्तूपसूचकः</code> (sp):
           </p>
@@ -395,16 +402,16 @@
         <!-- Lesson 11 -->
         <article class="lesson-section" id="lesson-11">
           <span class="portal-badge">पाठ ११ (Lesson 11)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Boot Proofs vs Isolated U-Mode Applications</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Boot Proofs vs Isolated U-Mode Applications</h2>
           <p>
             SanOS enforces a strict architectural boundary between two program classes:
           </p>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-            <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,215,0,0.2);">
+            <div style="background: var(--dev-surface-elevated); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,215,0,0.2);">
               <h4 style="color: var(--dev-gold); margin-top: 0;">धातु-प्रमाणम् (Boot Proofs)</h4>
               <p style="font-size: 0.85rem; color: var(--dev-text-muted);">Bare-metal machine/supervisor mode. Boots at <code>0x80000000</code>. Directly owns the UART memory-mapped device at <code>0x10000000</code>.</p>
             </div>
-            <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px; border: 1px solid rgba(0,240,255,0.2);">
+            <div style="background: var(--dev-surface-elevated); padding: 1rem; border-radius: 8px; border: 1px solid rgba(0,240,255,0.2);">
               <h4 style="color: var(--dev-cyan); margin-top: 0;">अतिथि-अनुप्रयोगः (Guest Apps)</h4>
               <p style="font-size: 0.85rem; color: var(--dev-text-muted);">U-mode isolated. Placed at <code>0x20000000</code>. Cannot access hardware devices; communicates via <code>आज्ञापनम्</code> (ecall) to a granted supervisor surface.</p>
             </div>
@@ -414,7 +421,7 @@
         <!-- Lesson 12 -->
         <article class="lesson-section" id="lesson-12">
           <span class="portal-badge">पाठ १२ (Lesson 12)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Atomic Operations & Multiprocessing (परमाणवः)</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Atomic Operations & Multiprocessing (परमाणवः)</h2>
           <p>
             Native atomic primitives in Sassembly guarantee lock-free synchronization across CPU cores:
           </p>
@@ -429,7 +436,7 @@
         <!-- Lesson 13 -->
         <article class="lesson-section" id="lesson-13">
           <span class="portal-badge">पाठ १३ (Lesson 13)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">64-bit Floating Point Architecture (भिन्न-सङ्ख्याः)</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">64-bit Floating Point Architecture (भिन्न-सङ्ख्याः)</h2>
           <p>
             Floating point operations utilize 32 dedicated registers (<code>भिन्न०..भिन्न३१</code>):
           </p>
@@ -442,7 +449,7 @@
         <!-- Lesson 14 -->
         <article class="lesson-section" id="lesson-14">
           <span class="portal-badge">पाठ १४ (Lesson 14)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">The 3 Core System Elements (त्रि-व्यवस्था-तत्त्वानि)</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">The 3 Core System Elements (त्रि-व्यवस्था-तत्त्वानि)</h2>
           <p>
             All higher-level applications in SanOS are constructed from 3 core elements:
           </p>
@@ -456,7 +463,7 @@
         <!-- Lesson 15 -->
         <article class="lesson-section" id="lesson-15">
           <span class="portal-badge">पाठ १५ (Lesson 15)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">SanOS Native Applications (मूल-अनुप्रयोगाः)</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">SanOS Native Applications (मूल-अनुप्रयोगाः)</h2>
           <p>
             The 4 fundamental native applications built on the 3 core elements:
           </p>
@@ -471,7 +478,7 @@
         <!-- Lesson 16 -->
         <article class="lesson-section" id="lesson-16">
           <span class="portal-badge">पाठ १६ (Lesson 16)</span>
-          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Zero-Mass Computing & Verification</h2>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Zero-Mass Computing & Verification</h2>
           <p>
             The fundamental philosophy of Sanskrit computing is <strong>unloading the bloat</strong>:
           </p>

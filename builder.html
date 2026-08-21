@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="sa">
 <head>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanskriti Software Builder Studio | ParamTatva.org</title>
@@ -30,6 +35,8 @@
       <span class="portal-badge">संस्कृतिः Software Builder</span>
     </a>
     <ul class="dev-nav-links">
+      <li><button id="theme-toggle" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--dev-text-main);">🌓</button></li>
+      
       <li><a href="index.html">Home</a></li>
       <li><a href="developer.html">Developer Hub</a></li>
       <li><a href="learn.html">Learning Academy</a></li>

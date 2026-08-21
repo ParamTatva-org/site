@@ -2,6 +2,11 @@
 <html lang="en">
 
 <head>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
@@ -50,6 +55,8 @@
         <span class="logo-english">ParamTatva</span>
       </a>
       <ul class="nav-links">
+      <li><button id="theme-toggle" class="nav-btn" title="Toggle Theme">🌓</button></li>
+      
         <li><a href="learn.html">Academy 📚</a></li>
         <li><a href="builder.html">Builder ✨</a></li>
         <li><a href="playground.html">Playground ⚡</a></li>
@@ -120,7 +127,7 @@
             <stop offset="100%" style="stop-color: #ffd700; stop-opacity: 1" />
           </linearGradient>
           <radialGradient id="binduGradient" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" style="stop-color: #ffffff; stop-opacity: 1" />
+            <stop offset="0%" style="stop-color: var(--dev-text-main); stop-opacity: 1" />
             <stop offset="100%" style="stop-color: #ffd700; stop-opacity: 1" />
           </radialGradient>
         </defs>
@@ -188,7 +195,7 @@
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 3rem;">
         
         <!-- Nalanda 62M Model Card -->
-        <div class="dev-card" style="border-color: var(--dev-gold); padding: 2.5rem; background: linear-gradient(145deg, rgba(20, 26, 65, 0.8) 0%, rgba(10, 14, 38, 0.95) 100%);">
+        <div class="dev-card" style="border-color: var(--dev-gold); padding: 2.5rem; background: var(--dev-surface-elevated);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
             <span class="portal-badge" style="background: rgba(255, 215, 0, 0.15); color: var(--dev-gold); border-color: rgba(255, 215, 0, 0.3);">
               Foundation Code Model
@@ -196,7 +203,7 @@
             <span style="font-family: var(--font-mono); color: var(--dev-cyan); font-weight: 700; font-size: 1.1rem;">62M Params</span>
           </div>
 
-          <h3 style="font-family: var(--font-heading); color: #fff; font-size: 1.8rem; margin: 0.5rem 0;">
+          <h3 style="font-family: var(--font-heading); color: var(--dev-text-main); font-size: 1.8rem; margin: 0.5rem 0;">
             नालन्दा (Nalanda 62M)
           </h3>
           <p style="color: var(--dev-text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
@@ -215,7 +222,7 @@
         </div>
 
         <!-- Govardhan 1M Model Card -->
-        <div class="dev-card" style="border-color: var(--dev-cyan); padding: 2.5rem; background: linear-gradient(145deg, rgba(12, 28, 65, 0.8) 0%, rgba(8, 16, 42, 0.95) 100%);">
+        <div class="dev-card" style="border-color: var(--dev-cyan); padding: 2.5rem; background: var(--dev-surface-elevated);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
             <span class="portal-badge" style="background: rgba(0, 240, 255, 0.15); color: var(--dev-cyan); border-color: rgba(0, 240, 255, 0.3);">
               Edge / Embedded Micro-Model
@@ -223,7 +230,7 @@
             <span style="font-family: var(--font-mono); color: #10b981; font-weight: 700; font-size: 1.1rem;">1M Params</span>
           </div>
 
-          <h3 style="font-family: var(--font-heading); color: #fff; font-size: 1.8rem; margin: 0.5rem 0;">
+          <h3 style="font-family: var(--font-heading); color: var(--dev-text-main); font-size: 1.8rem; margin: 0.5rem 0;">
             गोवर्धनः (Govardhan 1M)
           </h3>
           <p style="color: var(--dev-text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
@@ -255,7 +262,7 @@
   </section>
 
   <!-- Section 2: Sanskriti Autonomous Coding Agent -->
-  <section class="dev-spotlight-section" id="sanskriti" style="padding: 5rem 0; background: linear-gradient(180deg, rgba(6, 9, 25, 0.95) 0%, rgba(12, 18, 50, 0.9) 100%); border-top: 1px solid var(--border-gold, rgba(212, 175, 55, 0.25)); border-bottom: 1px solid var(--border-gold, rgba(212, 175, 55, 0.25));">
+  <section class="dev-spotlight-section" id="sanskriti" style="padding: 5rem 0; background: var(--dev-surface-elevated); border-top: 1px solid var(--border-gold, rgba(212, 175, 55, 0.25)); border-bottom: 1px solid var(--border-gold, rgba(212, 175, 55, 0.25));">
     <div class="container">
       <div class="section-header center">
         <span class="section-badge">॥ संस्कृतिः • निर्माता ॥</span>
@@ -310,7 +317,7 @@
           </div>
         </div>
 
-        <div class="dev-card" style="border-color: #007acc; background: linear-gradient(145deg, rgba(0, 122, 204, 0.1) 0%, rgba(8, 16, 42, 0.95) 100%);">
+        <div class="dev-card" style="border-color: #007acc; background: var(--dev-surface-elevated);">
           <div class="dev-card-icon" style="color: #007acc;">💻</div>
           <h3>
             <span>VS Code Extension</span>
@@ -446,7 +453,7 @@
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
         <div class="dev-card" style="text-align: center; padding: 2rem;">
           <div style="font-size: 2.5rem; color: var(--dev-gold); margin-bottom: 0.5rem;">मन्त्र</div>
-          <h3 style="color: #fff; margin: 0 0 0.5rem;">Mantra (मन्त्र)</h3>
+          <h3 style="color: var(--dev-text-main); margin: 0 0 0.5rem;">Mantra (मन्त्र)</h3>
           <p style="color: var(--dev-text-muted); font-size: 0.95rem;">
             The science of resonant frequency and sound vibration. The primordial source code of universal energy.
           </p>
@@ -454,7 +461,7 @@
 
         <div class="dev-card" style="text-align: center; padding: 2rem;">
           <div style="font-size: 2.5rem; color: var(--dev-cyan); margin-bottom: 0.5rem;">तन्त्र</div>
-          <h3 style="color: #fff; margin: 0 0 0.5rem;">Tantra (तन्त्र)</h3>
+          <h3 style="color: var(--dev-text-main); margin: 0 0 0.5rem;">Tantra (तन्त्र)</h3>
           <p style="color: var(--dev-text-muted); font-size: 0.95rem;">
             The systematic methodology and architecture of energy transformation and spiritual computation.
           </p>
@@ -462,7 +469,7 @@
 
         <div class="dev-card" style="text-align: center; padding: 2rem;">
           <div style="font-size: 2.5rem; color: #a855f7; margin-bottom: 0.5rem;">यन्त्र</div>
-          <h3 style="color: #fff; margin: 0 0 0.5rem;">Yantra (यन्त्र)</h3>
+          <h3 style="color: var(--dev-text-main); margin: 0 0 0.5rem;">Yantra (यन्त्र)</h3>
           <p style="color: var(--dev-text-muted); font-size: 0.95rem;">
             Sacred geometric machines and circuit topologies that focus and amplify cosmic consciousness.
           </p>
@@ -470,7 +477,7 @@
 
         <div class="dev-card" style="text-align: center; padding: 2rem;">
           <div style="font-size: 2.5rem; color: #10b981; margin-bottom: 0.5rem;">विज्ञान</div>
-          <h3 style="color: #fff; margin: 0 0 0.5rem;">Vigyan (विज्ञान)</h3>
+          <h3 style="color: var(--dev-text-main); margin: 0 0 0.5rem;">Vigyan (विज्ञान)</h3>
           <p style="color: var(--dev-text-muted); font-size: 0.95rem;">
             Computational science and practical realization uniting spiritual metaphysics with modern computing.
           </p>

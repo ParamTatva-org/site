@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="sa">
 <head>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanskrit Developer Portal | Sassembly & Sanskriti IDE | ParamTatva.org</title>
@@ -37,6 +42,8 @@
       <span class="portal-badge">Developer Portal</span>
     </a>
     <ul class="dev-nav-links">
+      <li><button id="theme-toggle" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--dev-text-main);">🌓</button></li>
+      
       <li><a href="index.html">Home</a></li>
       <li><a href="developer.html" class="active">Developer Hub</a></li>
       <li><a href="learn.html">Learning Academy 📚</a></li>
@@ -182,11 +189,11 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; font-family: var(--font-mono); font-size: 0.95rem;">
           <div>
             <span style="color: var(--dev-cyan);">// Load register क from address [ख + 0x8]</span>
-            <div style="color: #fff; margin-top: 0.3rem;">आहारः कम् खत् ०षोड्८ ।</div>
+            <div style="color: var(--dev-text-main); margin-top: 0.3rem;">आहारः कम् खत् ०षोड्८ ।</div>
           </div>
           <div>
             <span style="color: var(--dev-gold);">// Store register क to address [ख + 0x8]</span>
-            <div style="color: #fff; margin-top: 0.3rem;">निधानम् खय् ०षोड्८ कन ।</div>
+            <div style="color: var(--dev-text-main); margin-top: 0.3rem;">निधानम् खय् ०षोड्८ कन ।</div>
           </div>
         </div>
         <p style="font-size: 0.85rem; color: var(--dev-text-muted); margin-top: 1rem; margin-bottom: 0;">

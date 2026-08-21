@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSutraInteractions();
     initFormHandling();
     initAnimations();
+    initThemeToggle();
 });
 
 /* Navigation */
@@ -39,11 +40,9 @@ function initNavigation() {
         const currentScroll = window.pageYOffset;
         
         if (currentScroll > 100) {
-            nav.style.background = 'rgba(10, 10, 15, 0.98)';
-            nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
+            nav.classList.add('nav-scrolled');
         } else {
-            nav.style.background = 'rgba(10, 10, 15, 0.9)';
-            nav.style.boxShadow = 'none';
+            nav.classList.remove('nav-scrolled');
         }
         
         lastScroll = currentScroll;
@@ -66,6 +65,19 @@ function initNavigation() {
             }
         });
     });
+}
+
+/* Theme Toggle */
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
 }
 
 /* Scroll Effects */
