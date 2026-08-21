@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sassembly Web IDE & Simulator | ParamTatva Developer Portal</title>
+  <meta name="description" content="Interactive Sanskrit Sassembly Web IDE, Assembler, and 64-bit RISC-V VM Simulator. Write, assemble, and execute Devanagari Sassembly in your browser." />
+  <meta name="keywords" content="Sassembly, Sanskriti, SanOS, Sanskrit Programming, RISC-V, Assembler, IDE, ParamTatva" />
+  <meta name="theme-color" content="#050714" />
+  <link rel="canonical" href="https://paramtatva.org/playground.html" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/developer.css" />
+</head>
+<body class="dev-body">
+  <!-- Background Cosmic Grid -->
+  <div class="dev-cosmic-bg">
+    <div class="dev-grid-overlay"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="dev-navbar">
+    <a href="index.html" class="dev-nav-brand">
+      <span class="sanskrit-mark">परमतत्त्व</span>
+      <span class="portal-badge">यन्त्र & सस्सेम्बली IDE</span>
+    </a>
+    <ul class="dev-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="developer.html">Developer Hub</a></li>
+      <li><a href="learn.html">Learning Academy 📚</a></li>
+      <li><a href="builder.html">Sanskriti Builder ✨</a></li>
+      <li><a href="playground.html" class="active">Playground ⚡</a></li>
+      <li><a href="reference.html">ISA Reference</a></li>
+      <li><a href="install.html">Install Kit 📦</a></li>
+    </ul>
+  </nav>
+
+  <!-- Container -->
+  <div class="dev-container">
+    <div class="dev-hero" style="padding: 2rem 1rem 1rem;">
+      <span class="dev-hero-badge">॥ साधनम् • यन्त्रम् • संस्कृतिः ॥</span>
+      <h1 style="font-size: 2.4rem; margin-bottom: 0.5rem;">Sassembly Web IDE & Simulator</h1>
+      <p class="subtitle" style="font-size: 1.05rem; margin-bottom: 1.5rem;">
+        Devanagari Sassembly assembled and executed in-browser on a virtual 64-bit RISC-V processor. No external servers or dependencies.
+      </p>
+    </div>
+
+    <!-- IDE Main Workspace -->
+    <div class="ide-wrapper">
+      
+      <!-- Left Panel: Code Editor -->
+      <div class="ide-panel">
+        <div class="ide-toolbar">
+          <div class="ide-btn-group">
+            <label style="font-size: 0.85rem; color: var(--dev-text-muted);" for="presetSelect">कार्यक्रमः (Preset):</label>
+            <select id="presetSelect" class="ide-select">
+              <option value="namaste">नमस्ते संसार (UART Boot Proof)</option>
+              <option value="atithi">अतिथिः (U-Mode Guest App)</option>
+              <option value="gunanam">वैदिक गुणनम् (64-bit Math)</option>
+              <option value="fibonacci">फिबोनैकी चक्रम् (Branch Loop)</option>
+            </select>
+          </div>
+
+          <div class="ide-btn-group">
+            <label style="font-size: 0.85rem; color: var(--dev-text-muted);" for="execModeSelect">Mode:</label>
+            <select id="execModeSelect" class="ide-select">
+              <option value="proof">धातु-प्रमाणम् (Boot-Proof)</option>
+              <option value="app">अतिथि-अनुप्रयोगः (App Mode)</option>
+            </select>
+            <button id="btnClear" class="btn-dev" title="Clear Editor">शोधनम्</button>
+            <button id="btnCopy" class="btn-dev" title="Copy Code">प्रतिलिपिः</button>
+            <button id="btnRun" class="btn-dev btn-dev-primary" title="Assemble & Run (Ctrl+Enter)">
+              <span>▶ संकलनम् चालनम् च</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Token Insertion Ribbon -->
+        <div class="token-ribbon" id="tokenRibbon"></div>
+
+        <!-- Editor with Line Numbers -->
+        <div class="editor-container">
+          <div class="editor-line-numbers" id="lineNumbers">1</div>
+          <textarea id="codeEditor" class="editor-textarea" spellcheck="false" placeholder="अत्र सस्सेम्बली लिखतु..."></textarea>
+        </div>
+      </div>
+
+      <!-- Right Panel: Output & Registers -->
+      <div class="ide-right-panel">
+        
+        <!-- Output Panes -->
+        <div class="output-pane-box">
+          <div class="output-header">
+            <span>यन्त्र UART निर्गमः (Serial Console · ०षोड्१०००००००)</span>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <span id="haltStatus" class="badge-live">Ready (सज्जम्)</span>
+              <button id="btnStep" class="btn-dev" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;">एकपदम् (Step)</button>
+              <button id="btnReset" class="btn-dev" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;">पुनर्स्थापनम् (Reset)</button>
+            </div>
+          </div>
+          <div class="terminal-display" id="uartOutput">नमस्ते संसार</div>
+        </div>
+
+        <div class="output-pane-box" style="flex: 0.7;">
+          <div class="output-header">
+            <span>अतिथि-फलकम् (Supervisor Granted Surface)</span>
+            <span style="font-size: 0.75rem; color: var(--dev-text-dim);">U-Mode Isolated</span>
+          </div>
+          <div class="surface-display" id="surfaceOutput">(No surface granted to bare-metal boot proof)</div>
+        </div>
+
+        <!-- Live Register Inspector -->
+        <div class="register-inspector">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-weight: 600; font-size: 0.9rem; color: var(--dev-gold);">
+              कोष्ठक-निरीक्षकः (RV64 Registers Bank)
+            </span>
+            <div style="font-size: 0.8rem; color: var(--dev-text-muted); display: flex; gap: 1rem;">
+              <span>PC: <strong id="currentPc" style="color: var(--dev-cyan);">०षोड्८०००००००</strong></span>
+              <span>चक्राणि (Cycles): <strong id="cycleCount" style="color: var(--dev-gold);">०</strong></span>
+            </div>
+          </div>
+          <div class="reg-grid" id="regGrid"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Quick Help & Syntax Guide -->
+    <div style="margin-top: 3rem; background: var(--dev-surface); border: 1px solid var(--dev-border); border-radius: 12px; padding: 2rem;">
+      <h3 style="color: var(--dev-gold); margin-top: 0;">Sassembly Language Primer</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; font-size: 0.95rem; color: var(--dev-text-muted);">
+        <div>
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">१. वाक्य (Sentence Structure)</h4>
+          <p>Each instruction starts with a <strong>Verb</strong> (mnemonic), followed by operands marked with kāraka sigils, terminated by <code>।</code> daṇḍa.</p>
+          <code style="color: var(--dev-cyan);">योगः कम् खन गन ।</code> &rarr; <code>क &larr; ख + ग</code>
+        </div>
+        <div>
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">२. पञ्च-कारकाणि (5 Kāraka Sigils)</h4>
+          <p><strong>म्</strong> Destination (कर्म) &bull; <strong>न</strong> Source (करण) &bull; <strong>त्</strong> Load Address (अपादान) &bull; <strong>य्</strong> Store Address (सम्प्रदान) &bull; <strong>ए</strong> Locus (अधिकरण).</p>
+        </div>
+        <div>
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">३. सङ्ख्याः (Numerals)</h4>
+          <p>Hexadecimal prefix <code>०षोड्</code> (digits ०-९, अ, आ, इ, ई, उ, ऊ) &bull; Binary <code>०द्वि</code> &bull; Octal <code>०अष्ट</code> &bull; Decimal digits ०-९.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="text-align: center; padding: 3rem 1rem; color: var(--dev-text-dim); border-top: 1px solid var(--dev-border); margin-top: 4rem;">
+    <p>॥ ॐ तत् सत् ॥ &bull; ParamTatva.org &bull; Sanskrit Computing & Sassembly Research</p>
+  </footer>
+
+  <script src="js/sassembly-engine.js"></script>
+  <script src="js/playground.js"></script>
+</body>
+</html>

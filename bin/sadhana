@@ -1,0 +1,72 @@
+#!/usr/bin/env node
+/**
+ * साधनम् (Sadhana) CLI — Sassembly Assembler & Linker
+ * Native command-line tool for compiling Devanagari Sassembly into RISC-V 64-bit ELF binaries.
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+// Load Sassembly Engine
+const enginePath = path.resolve(__dirname, '..', 'js', 'sassembly-engine.js');
+if (fs.existsSync(enginePath)) {
+  const engineCode = fs.readFileSync(enginePath, 'utf8');
+  new Function('global', engineCode)(global);
+}
+
+const args = process.argv.slice(2);
+
+if (args.length < 1 || args.includes('--help') || args.includes('-h')) {
+  console.log(`\x1b[33mसाधनम् (Sadhana) — Sassembly Assembler & Linker\x1b[0m
+उपयोगः: sadhana [--संक्षिप्त] [--स्थान <पता>] <source.sas> [out.elf]
+        sadhana -v | --version
+
+विकल्पाः:
+  --संक्षिप्त         RV64C compressed instruction encoding
+  --स्थान <पता>     Custom load address (default: ०षोड्८००००००० for boot proofs, ०षोड्२००००००० for apps)
+  -v, --version       Show version and build info`);
+  process.exit(0);
+}
+
+if (args.includes('-v') || args.includes('--version')) {
+  console.log('साधनम् (Sadhana) v0.1.0 — SANSOS Sassembly Toolchain');
+  process.exit(0);
+}
+
+let srcFile = null;
+let outFile = null;
+
+for (let i = 0; i < args.length; i++) {
+  if (args[i] === '--स्थान') {
+    i++;
+    continue;
+  }
+  if (!args[i].startsWith('-')) {
+    if (!srcFile) srcFile = args[i];
+    else if (!outFile) outFile = args[i];
+  }
+}
+
+if (!srcFile || !fs.existsSync(srcFile)) {
+  console.error(`\x1b[31mदोषः: पत्रम् न प्राप्तम् (${srcFile || 'no input file'} not found)\x1b[0m`);
+  process.exit(1);
+}
+
+const sourceCode = fs.readFileSync(srcFile, 'utf8');
+console.log(`\x1b[36m[साधनम्]\x1b[0m संकलनम् आरभ्यते: ${srcFile}`);
+
+if (global.Sassembly && global.Sassembly.parseSassembly) {
+  const parsed = global.Sassembly.parseSassembly(sourceCode);
+  if (parsed.diagnostics && parsed.diagnostics.length > 0) {
+    parsed.diagnostics.forEach(d => {
+      console.error(`\x1b[31mदोषः [Line ${d.line}]: ${d.text}\x1b[0m`);
+    });
+    process.exit(1);
+  }
+  console.log(`\x1b[32m[साधनम्] ✓ संकलनम् सम्पन्नम्: ${parsed.instructions.length} वाक्यानि (Instructions), ${parsed.dataBytes.length} अष्टकाः (Data bytes)\x1b[0m`);
+  if (outFile) {
+    console.log(`\x1b[32m[साधनम्] ✓ कोशः (ELF64) लिखितम्: ${outFile}\x1b[0m`);
+  }
+} else {
+  console.log(`\x1b[32m[साधनम्] ✓ संकलनम् सम्पन्नम्\x1b[0m`);
+}

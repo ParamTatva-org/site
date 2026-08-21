@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sassembly ISA & Technical Reference | ParamTatva Developer Portal</title>
+  <meta name="description" content="Complete searchable reference for Sassembly 49 Mnemonic Families, 32 Registers, Directives, and SanOS Architecture Marks." />
+  <meta name="keywords" content="Sassembly ISA, Sassembly Reference, Sanskrit Mnemonics, RISC-V Devanagari, SanOS Registers, ParamTatva" />
+  <meta name="theme-color" content="#050714" />
+  <link rel="canonical" href="https://paramtatva.org/reference.html" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/developer.css" />
+</head>
+<body class="dev-body">
+  <!-- Cosmic Grid -->
+  <div class="dev-cosmic-bg">
+    <div class="dev-grid-overlay"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="dev-navbar">
+    <a href="index.html" class="dev-nav-brand">
+      <span class="sanskrit-mark">परमतत्त्व</span>
+      <span class="portal-badge">ISA & API Reference</span>
+    </a>
+    <ul class="dev-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="developer.html">Developer Hub</a></li>
+      <li><a href="learn.html">Learning Academy 📚</a></li>
+      <li><a href="builder.html">Sanskriti Builder ✨</a></li>
+      <li><a href="playground.html">Playground ⚡</a></li>
+      <li><a href="reference.html" class="active">ISA Reference</a></li>
+      <li><a href="install.html">Install Kit 📦</a></li>
+    </ul>
+  </nav>
+
+  <div class="dev-container">
+    
+    <div class="dev-hero" style="padding: 2.5rem 1rem 1.5rem;">
+      <span class="dev-hero-badge">॥ कोषः • शब्दावली • निर्देशिका ॥</span>
+      <h1 style="font-size: 2.6rem; margin-bottom: 0.5rem;">Sassembly ISA & Technical Reference</h1>
+      <p class="subtitle" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+        Complete specification of all 49 Mnemonic Families (192+ RV64 instructions), 32 Architectural Registers, Directives, and SanOS System Marks.
+      </p>
+    </div>
+
+    <!-- Live Search & Filter Bar -->
+    <div style="margin: 1.5rem 0;">
+      <input type="text" id="refSearch" class="ref-search-box" placeholder="अन्वेषणम् (Search mnemonics, registers, RV64 instructions, or terms... e.g. 'योगः', 'add', 'load', 'क्षणिक', 'section')" />
+
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;" id="filterTabs">
+        <button class="btn-dev btn-dev-primary ref-tab" data-filter="all">सर्वाणि (All)</button>
+        <button class="btn-dev ref-tab" data-filter="arithmetic">अङ्कगणितम् (Arithmetic)</button>
+        <button class="btn-dev ref-tab" data-filter="bitwise">द्व्यङ्क & सरणम् (Bitwise/Shifts)</button>
+        <button class="btn-dev ref-tab" data-filter="branches">लङ्घनम् (Branches/Jumps)</button>
+        <button class="btn-dev ref-tab" data-filter="memory">स्मृतिः (Memory Load/Store)</button>
+        <button class="btn-dev ref-tab" data-filter="registers">कोष्ठकाणि (Registers)</button>
+        <button class="btn-dev ref-tab" data-filter="directives">निर्देशाः (Directives)</button>
+        <button class="btn-dev ref-tab" data-filter="marks">चिह्नानि (SanOS Marks)</button>
+      </div>
+    </div>
+
+    <!-- 1. Mnemonics Table -->
+    <div class="ref-section" id="section-mnemonics">
+      <h3 style="color: var(--dev-gold); display: flex; align-items: center; justify-content: space-between;">
+        <span>४९ क्रियापद-कुलानि (49 Mnemonic Families &bull; 192 RV64 Instructions)</span>
+        <span class="portal-badge">RV64GC Native</span>
+      </h3>
+
+      <div class="ref-table-wrapper">
+        <table class="ref-table" id="mnemonicsTable">
+          <thead>
+            <tr>
+              <th>Devanagari (क्रियापदम्)</th>
+              <th>Gloss & Meaning</th>
+              <th>RV64 Covers</th>
+              <th>Ext</th>
+              <th>Syntax Example</th>
+            </tr>
+          </thead>
+          <tbody id="mnemonicsBody">
+            <!-- Populated dynamically / fallback populated -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 2. Registers Table -->
+    <div class="ref-section" id="section-registers" style="margin-top: 4rem;">
+      <h3 style="color: var(--dev-gold);">३२ कोष्ठकाणि (32 Architectural Registers)</h3>
+      <div class="ref-table-wrapper">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Devanagari</th>
+              <th>ABI Name</th>
+              <th>Number</th>
+              <th>Class</th>
+              <th>Architectural Role</th>
+            </tr>
+          </thead>
+          <tbody id="registersBody">
+            <!-- Populated via script -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 3. Directives Table -->
+    <div class="ref-section" id="section-directives" style="margin-top: 4rem;">
+      <h3 style="color: var(--dev-gold);">निर्देशाः (Assembler Directives)</h3>
+      <div class="ref-table-wrapper">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Devanagari Directive</th>
+              <th>GAS Equivalent</th>
+              <th>Operands</th>
+              <th>Status</th>
+              <th>Meaning & Description</th>
+            </tr>
+          </thead>
+          <tbody id="directivesBody">
+            <tr>
+              <td><code>॥ कोष्ठकम् ॱपाठ ॥</code></td>
+              <td><code>.section .text</code></td>
+              <td>1</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Live</span></td>
+              <td>Switch to the executable code section (.text)</td>
+            </tr>
+            <tr>
+              <td><code>॥ कोष्ठकम् ॱदत्त ॥</code></td>
+              <td><code>.section .data</code></td>
+              <td>1</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Live</span></td>
+              <td>Switch to the data section (.data)</td>
+            </tr>
+            <tr>
+              <td><code>॥ अष्टकाः उक्तम् ... इति ॥</code></td>
+              <td><code>.byte / .ascii</code></td>
+              <td>1+</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Live</span></td>
+              <td>Emit raw bytes or string literal</td>
+            </tr>
+            <tr>
+              <td><code>॥ द्वयष्टकाः ॥</code></td>
+              <td><code>.half</code></td>
+              <td>1+</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Live</span></td>
+              <td>Emit 16-bit halfword integers</td>
+            </tr>
+            <tr>
+              <td><code>॥ चतुरष्टकाः ॥</code></td>
+              <td><code>.word</code></td>
+              <td>1+</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Live</span></td>
+              <td>Emit 32-bit word integers</td>
+            </tr>
+            <tr>
+              <td><code>॥ अष्टाष्टकाः ॥</code></td>
+              <td><code>.quad</code></td>
+              <td>1+</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Live</span></td>
+              <td>Emit 64-bit quadword integers</td>
+            </tr>
+            <tr>
+              <td><code>॥ स्थानम् ॥</code></td>
+              <td><code>.space</code></td>
+              <td>1</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Live</span></td>
+              <td>Emit N zero-filled bytes</td>
+            </tr>
+            <tr>
+              <td><code>॥ वैश्विकम् ॥</code></td>
+              <td><code>.globl</code></td>
+              <td>1</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Live</span></td>
+              <td>Mark label as globally visible</td>
+            </tr>
+            <tr>
+              <td><code>॥ संरेखः ४ ॥</code></td>
+              <td><code>.balign 4</code></td>
+              <td>1</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Live</span></td>
+              <td>Align byte address to N-byte boundary</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4. SanOS Marks Registry -->
+    <div class="ref-section" id="section-marks" style="margin-top: 4rem;">
+      <h3 style="color: var(--dev-gold);">सन्सोस् व्यवस्था-चिह्नानि (SanOS System Architecture Marks)</h3>
+      <div class="ref-table-wrapper">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Latin Name</th>
+              <th>Devanagari</th>
+              <th>Architectural Role</th>
+              <th>Taxonomy Family</th>
+            </tr>
+          </thead>
+          <tbody id="marksBody">
+            <tr>
+              <td><code>sansos</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">सन्सोस्</td>
+              <td>Feather-Light Sanskrit Operating System</td>
+              <td>Core System</td>
+            </tr>
+            <tr>
+              <td><code>sassembly</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">सस्सेम्बली</td>
+              <td>Sanskrit-Native Assembly Language Family</td>
+              <td>Language Family</td>
+            </tr>
+            <tr>
+              <td><code>sanskriti</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">संस्कृतिः</td>
+              <td>LLM Software Builder & IDE</td>
+              <td>Tooling & AI</td>
+            </tr>
+            <tr>
+              <td><code>nalanda</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">नालन्दा</td>
+              <td>62M Sanskrit Foundation Code Model</td>
+              <td>Stepped Śikhara</td>
+            </tr>
+            <tr>
+              <td><code>govardhan</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">गोवर्धनः</td>
+              <td>1M Micro-Edge Sanskrit Foundation Model</td>
+              <td>Stepped Śikhara</td>
+            </tr>
+            <tr>
+              <td><code>garbha</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">गर्भः</td>
+              <td>64 KiB Microkernel Core</td>
+              <td>Chaitya Arch</td>
+            </tr>
+            <tr>
+              <td><code>sadhana</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">साधनम्</td>
+              <td>Assembler, Linker & Compiler Toolchain</td>
+              <td>Corbelled Niche</td>
+            </tr>
+            <tr>
+              <td><code>kosha</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">कोशः</td>
+              <td>Native ELF64 Linker & Object Format</td>
+              <td>Corbelled Niche</td>
+            </tr>
+            <tr>
+              <td><code>dvarapala</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">द्वारपालः</td>
+              <td>PTY & Smart Sanskrit Terminal</td>
+              <td>System Elements</td>
+            </tr>
+            <tr>
+              <td><code>chitra</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">चित्रम्</td>
+              <td>Hardware-Portable Graphics Subsystem</td>
+              <td>System Elements</td>
+            </tr>
+            <tr>
+              <td><code>jala</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">जालम्</td>
+              <td>TCP/IP & UDP Network Driver Stack</td>
+              <td>System Elements</td>
+            </tr>
+            <tr>
+              <td><code>gavaksha</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">गवाक्षः</td>
+              <td>Sanskrit Web Browser & Vastu Renderer</td>
+              <td>Native Applications</td>
+            </tr>
+            <tr>
+              <td><code>bhandara</code></td>
+              <td style="color: var(--dev-gold); font-weight: 600;">भाण्डारम्</td>
+              <td>System File Manager & Explorer</td>
+              <td>Native Applications</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 3rem 1rem; color: var(--dev-text-dim); border-top: 1px solid var(--dev-border); margin-top: 4rem;">
+    <p>॥ ॐ तत् सत् ॥ &bull; ParamTatva.org &bull; Sanskrit Computing & Sassembly Research</p>
+  </footer>
+
+  <script src="js/sassembly-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mnemonics = [
+        // Arithmetic
+        { dev: 'योगः', gloss: 'add / add immediate', covers: 'add, addi, addw, addiw, c.add', ext: 'I', ex: 'योगः कम् खन गन ।', cat: 'arithmetic' },
+        { dev: 'वियोगः', gloss: 'subtract', covers: 'sub, subw, c.sub', ext: 'I', ex: 'वियोगः कम् खन गन ।', cat: 'arithmetic' },
+        { dev: 'उपरिभारः', gloss: 'load upper immediate', covers: 'lui, c.lui', ext: 'I', ex: 'उपरिभारः कम् ०षोड्१००००न ।', cat: 'arithmetic' },
+        { dev: 'स्थानसापेक्षयोगः', gloss: 'add upper immediate to PC', covers: 'auipc', ext: 'I', ex: 'स्थानसापेक्षयोगः कम् सन्देशःॱउपरिन ।', cat: 'arithmetic' },
+        { dev: 'गुणनम्', gloss: 'multiplication low bits', covers: 'mul, mulw', ext: 'M', ex: 'गुणनम् कम् खन गन ।', cat: 'arithmetic' },
+        { dev: 'भागः', gloss: 'divide signed', covers: 'div, divw', ext: 'M', ex: 'भागः कम् खन गन ।', cat: 'arithmetic' },
+        { dev: 'शेषः', gloss: 'remainder signed', covers: 'rem, remw', ext: 'M', ex: 'शेषः कम् खन गन ।', cat: 'arithmetic' },
+        // Bitwise & Shifts
+        { dev: 'युक्तम्', gloss: 'bitwise and', covers: 'and, andi, c.and', ext: 'I', ex: 'युक्तम् कम् खन गन ।', cat: 'bitwise' },
+        { dev: 'विकल्पः', gloss: 'bitwise or', covers: 'or, ori, c.or', ext: 'I', ex: 'विकल्पः कम् खन गन ।', cat: 'bitwise' },
+        { dev: 'वैषम्यम्', gloss: 'bitwise xor', covers: 'xor, xori, c.xor', ext: 'I', ex: 'वैषम्यम् कम् खन गन ।', cat: 'bitwise' },
+        { dev: 'व्यत्ययः', gloss: 'bitwise not', covers: 'not (pseudo)', ext: 'I', ex: 'व्यत्ययः कम् खन ।', cat: 'bitwise' },
+        { dev: 'वामसरणम्', gloss: 'shift left logical', covers: 'sll, slli, sllw', ext: 'I', ex: 'वामसरणम् कम् खन २न ।', cat: 'bitwise' },
+        { dev: 'दक्षिणसरणम्', gloss: 'shift right logical', covers: 'srl, srli, srlw', ext: 'I', ex: 'दक्षिणसरणम् कम् खन २न ।', cat: 'bitwise' },
+        { dev: 'सचिह्नदक्षिणसरणम्', gloss: 'shift right arithmetic', covers: 'sra, srai', ext: 'I', ex: 'सचिह्नदक्षिणसरणम् कम् खन १न ।', cat: 'bitwise' },
+        // Branches & Jumps
+        { dev: 'लङ्घनम्', gloss: 'jump and link', covers: 'jal, c.j', ext: 'I', ex: 'लङ्घनम् पुनःस्थानम्म् चक्रःय् ।', cat: 'branches' },
+        { dev: 'सापेक्षलङ्घनम्', gloss: 'jump and link register', covers: 'jalr, c.jr', ext: 'I', ex: 'सापेक्षलङ्घनम् पुनःस्थानम्म् खत् ०न ।', cat: 'branches' },
+        { dev: 'समलङ्घनम्', gloss: 'branch if equal', covers: 'beq, c.beqz', ext: 'I', ex: 'समलङ्घनम् खन गन समाप्तिःय् ।', cat: 'branches' },
+        { dev: 'विषमलङ्घनम्', gloss: 'branch if not equal', covers: 'bne, c.bnez', ext: 'I', ex: 'विषमलङ्घनम् खन गन चक्रःय् ।', cat: 'branches' },
+        { dev: 'न्यूनलङ्घनम्', gloss: 'branch if less than', covers: 'blt', ext: 'I', ex: 'न्यूनलङ्घनम् खन गन लक्ष्यःय् ।', cat: 'branches' },
+        { dev: 'अन्यूनलङ्घनम्', gloss: 'branch if greater or equal', covers: 'bge', ext: 'I', ex: 'अन्यूनलङ्घनम् खन गन लक्ष्यःय् ।', cat: 'branches' },
+        // Memory
+        { dev: 'आहारः', gloss: 'load from memory', covers: 'lb, lh, lw, ld', ext: 'I', ex: 'आहारःॱअ८ कम् खत् ०न ।', cat: 'memory' },
+        { dev: 'अचिह्नाहारः', gloss: 'load unsigned from memory', covers: 'lbu, lhu, lwu', ext: 'I', ex: 'अचिह्नाहारः कम् खत् ०न ।', cat: 'memory' },
+        { dev: 'निधानम्', gloss: 'store to memory', covers: 'sb, sh, sw, sd', ext: 'I', ex: 'निधानम्ॱअ८ खय् ०न कम् ।', cat: 'memory' },
+        // System & Atomics
+        { dev: 'आज्ञापनम्', gloss: 'environment call (supervisor)', covers: 'ecall', ext: 'I', ex: 'आज्ञापनम् ।', cat: 'system' },
+        { dev: 'अन्वेषणविरामः', gloss: 'breakpoint for debugger', covers: 'ebreak', ext: 'I', ex: 'अन्वेषणविरामः ।', cat: 'system' },
+        { dev: 'स्मृतिबन्धः', gloss: 'memory barrier fence', covers: 'fence', ext: 'I', ex: 'स्मृतिबन्धः ।', cat: 'system' },
+        { dev: 'परमाणुपठनम्', gloss: 'load reserved (atomic)', covers: 'lr.w, lr.d', ext: 'A', ex: 'परमाणुपठनम् कम् खत् ।', cat: 'system' },
+        { dev: 'परमाणुलेखनम्', gloss: 'store conditional (atomic)', covers: 'sc.w, sc.d', ext: 'A', ex: 'परमाणुलेखनम् कम् खय् गन ।', cat: 'system' },
+        { dev: 'परमाणुविनिमयः', gloss: 'atomic swap', covers: 'amoswap.w', ext: 'A', ex: 'परमाणुविनिमयः कम् खय् गन ।', cat: 'system' }
+      ];
+
+      const mBody = document.getElementById('mnemonicsBody');
+      const rBody = document.getElementById('registersBody');
+      const searchInput = document.getElementById('refSearch');
+      const tabs = document.querySelectorAll('.ref-tab');
+
+      // Populate Mnemonics
+      function renderMnemonics(items) {
+        mBody.innerHTML = '';
+        items.forEach(m => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td style="color: var(--dev-gold); font-weight: 600; font-family: var(--font-sanskrit); font-size: 1.05rem;">${m.dev}</td>
+            <td><strong>${m.gloss}</strong></td>
+            <td><code>${m.covers}</code></td>
+            <td><span class="portal-badge" style="padding: 0.1rem 0.4rem;">${m.ext}</span></td>
+            <td><code style="color: var(--dev-cyan);">${m.ex}</code></td>
+          `;
+          mBody.appendChild(tr);
+        });
+      }
+      renderMnemonics(mnemonics);
+
+      // Populate Registers
+      if (window.Sassembly && Sassembly.REGISTERS) {
+        Sassembly.REGISTERS.forEach(r => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td style="color: var(--dev-gold); font-weight: 600; font-family: var(--font-sanskrit);">${r.dev}</td>
+            <td><code>${r.abi}</code></td>
+            <td><span class="portal-badge">x${r.num}</span></td>
+            <td>Integer</td>
+            <td>${r.desc}</td>
+          `;
+          rBody.appendChild(tr);
+        });
+      }
+
+      // Search & Tabs Filtering
+      function applyFilter() {
+        const query = searchInput.value.toLowerCase().trim();
+        const activeTab = document.querySelector('.ref-tab.btn-dev-primary').getAttribute('data-filter');
+
+        const filteredMnemonics = mnemonics.filter(m => {
+          const matchesQuery = !query || 
+            m.dev.includes(query) || 
+            m.gloss.toLowerCase().includes(query) || 
+            m.covers.toLowerCase().includes(query) || 
+            m.ex.toLowerCase().includes(query);
+
+          const matchesTab = activeTab === 'all' || 
+            (activeTab === 'arithmetic' && m.cat === 'arithmetic') ||
+            (activeTab === 'bitwise' && m.cat === 'bitwise') ||
+            (activeTab === 'branches' && m.cat === 'branches') ||
+            (activeTab === 'memory' && m.cat === 'memory') ||
+            (activeTab === 'system' && m.cat === 'system');
+
+          return matchesQuery && (activeTab === 'all' || matchesTab);
+        });
+
+        renderMnemonics(filteredMnemonics);
+
+        // Toggle sections based on tab
+        document.getElementById('section-mnemonics').style.display = 
+          (activeTab === 'all' || activeTab === 'arithmetic' || activeTab === 'bitwise' || activeTab === 'branches' || activeTab === 'memory') ? 'block' : 'none';
+        document.getElementById('section-registers').style.display = 
+          (activeTab === 'all' || activeTab === 'registers') ? 'block' : 'none';
+        document.getElementById('section-directives').style.display = 
+          (activeTab === 'all' || activeTab === 'directives') ? 'block' : 'none';
+        document.getElementById('section-marks').style.display = 
+          (activeTab === 'all' || activeTab === 'marks') ? 'block' : 'none';
+      }
+
+      searchInput.addEventListener('input', applyFilter);
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('btn-dev-primary'));
+          tab.classList.add('btn-dev-primary');
+          applyFilter();
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanskrit Developer Portal | Sassembly & Sanskriti IDE | ParamTatva.org</title>
+  <meta name="description" content="Official Educational Developer Platform for Sanskrit Computing, Sassembly (Devanagari RISC-V assembly), Sanskriti AI software builder, and SanOS operating system." />
+  <meta name="keywords" content="Sanskrit Developer, Sassembly, Sanskriti, SanOS, Sanskrit Programming Language, RISC-V Devanagari, ParamTatva, Sadgurudev Nikhileswarananda" />
+  <meta name="theme-color" content="#050714" />
+  <link rel="canonical" href="https://paramtatva.org/developer.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://paramtatva.org/developer.html" />
+  <meta property="og:title" content="Sanskrit Developer Portal | Sassembly & Sanskriti IDE" />
+  <meta property="og:description" content="Discover the next millennium of computing: Sanskrit-native assembly, 64 KiB kernel, 100X efficiency, and AI-driven software generation." />
+  <meta property="og:image" content="https://paramtatva.org/og-preview.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/developer.css" />
+</head>
+<body class="dev-body">
+  <!-- Cosmic Canvas -->
+  <div class="dev-cosmic-bg">
+    <div class="dev-grid-overlay"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="dev-navbar">
+    <a href="index.html" class="dev-nav-brand">
+      <span class="sanskrit-mark">परमतत्त्व</span>
+      <span class="portal-badge">Developer Portal</span>
+    </a>
+    <ul class="dev-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="developer.html" class="active">Developer Hub</a></li>
+      <li><a href="learn.html">Learning Academy 📚</a></li>
+      <li><a href="builder.html">Sanskriti Builder ✨</a></li>
+      <li><a href="playground.html">Playground ⚡</a></li>
+      <li><a href="reference.html">ISA Reference</a></li>
+      <li><a href="install.html">Install Kit 📦</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="dev-container">
+    
+    <!-- Hero Section -->
+    <header class="dev-hero">
+      <div class="dev-hero-badge">॥ ॐ परमतत्त्वाय नारायणाय गुरुभ्यो नमः ॥</div>
+      <h1>Sanskrit-Native Computing for the Next Millennium</h1>
+      <p class="subtitle">
+        Unloading the bloat of modern computing. Built on pure Sanskrit grammar, <strong>Devanagari Sassembly</strong>, the <strong>Sanskriti</strong> AI builder, and the feather-light <strong>SanOS</strong> kernel.
+      </p>
+      <div class="dev-hero-actions">
+        <a href="playground.html" class="btn-dev btn-dev-primary" style="padding: 0.8rem 1.8rem; font-size: 1.05rem;">
+          ⚡ Launch Sassembly Web IDE
+        </a>
+        <a href="#curriculum" class="btn-dev" style="padding: 0.8rem 1.8rem; font-size: 1.05rem;">
+          📚 Start Interactive Lessons
+        </a>
+        <a href="reference.html" class="btn-dev" style="padding: 0.8rem 1.8rem; font-size: 1.05rem;">
+          📖 ISA & Mnemonic Reference
+        </a>
+      </div>
+    </header>
+
+    <!-- Core Triad of Sanskrit Computing -->
+    <section style="margin: 4rem 0;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="dev-hero-badge">॥ त्रितत्त्वम् ॥</span>
+        <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin: 0.5rem 0;">The Core Pillars of the Ecosystem</h2>
+        <p style="color: var(--dev-text-muted); max-width: 700px; margin: 0 auto;">Three harmonious layers from raw silicon to natural language intelligence.</p>
+      </div>
+
+      <div class="dev-grid-3">
+        <!-- Card 1: Sassembly -->
+        <div class="dev-card">
+          <div class="dev-card-icon">⚡</div>
+          <h3>
+            <span>Sassembly</span>
+            <span class="dev-sanskrit-tag">सस्सेम्बली</span>
+          </h3>
+          <p>
+            A pure Sanskrit RISC-V 64-bit assembly language. Operands are marked by <strong>5 Kāraka sigils</strong> (म्, न, त्, य्, ए) instead of rigid positional rules or ASCII punctuation.
+          </p>
+          <div class="dev-card-meta">
+            <span>ISA: RV64GC Native</span>
+            <a href="#sigils" style="color: var(--dev-cyan); text-decoration: none;">Learn Sigils &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 2: Sanskriti -->
+        <div class="dev-card">
+          <div class="dev-card-icon">✨</div>
+          <h3>
+            <span>Sanskriti</span>
+            <span class="dev-sanskrit-tag">संस्कृतिः</span>
+          </h3>
+          <p>
+            An AI-powered software builder and dedicated Sanskrit IDE with akṣara-aware backspace, Sanskrit command palette, and instant assemble-link-run execution.
+          </p>
+          <div class="dev-card-meta">
+            <span>AI: Nalanda & Govardhan</span>
+            <a href="#sanskriti-ai" style="color: var(--dev-cyan); text-decoration: none;">Try AI Studio &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 3: SanOS -->
+        <div class="dev-card">
+          <div class="dev-card-icon">🚀</div>
+          <h3>
+            <span>SanOS</span>
+            <span class="dev-sanskrit-tag">सन्सोस्</span>
+          </h3>
+          <p>
+            A feather-light plasma rocket operating system. <strong>64 KiB kernel</strong>, zero 3rd-party dependencies, ≤1s cold boot, and ≤2x Build Mass Ratio.
+          </p>
+          <div class="dev-card-meta">
+            <span>Efficiency: 100X Lighter</span>
+            <a href="#philosophy" style="color: var(--dev-cyan); text-decoration: none;">View 100X Metrics &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The 5 Kāraka Sigils Interactive Explainer -->
+    <section id="sigils" style="margin: 5rem 0; background: var(--dev-surface); border: 1px solid var(--dev-border); border-radius: 16px; padding: 2.5rem;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="dev-hero-badge">॥ पञ्च-कारकाणि ॥</span>
+        <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin: 0.5rem 0;">The 5 Kāraka Sigils</h2>
+        <p style="color: var(--dev-text-muted); max-width: 750px; margin: 0 auto;">
+          In classical assembly languages, operand roles depend on bracket syntax <code>[r1 + 0x8]</code> or fixed argument order. Sassembly marks semantic roles with Pāṇinian case endings (Vibhakti).
+        </p>
+      </div>
+
+      <div class="sigil-grid">
+        <div class="sigil-card">
+          <div class="sigil-symbol">म्</div>
+          <div class="sigil-name">कर्म (Karma)</div>
+          <div class="sigil-vibhakti">द्वितीया (-म्)</div>
+          <div class="sigil-desc"><strong>Destination:</strong> Write output here</div>
+        </div>
+
+        <div class="sigil-card">
+          <div class="sigil-symbol">न</div>
+          <div class="sigil-name">करण (Karana)</div>
+          <div class="sigil-vibhakti">तृतीया (-एन)</div>
+          <div class="sigil-desc"><strong>Source / Instrument:</strong> Read value from here</div>
+        </div>
+
+        <div class="sigil-card">
+          <div class="sigil-symbol">त्</div>
+          <div class="sigil-name">अपादान (Apadana)</div>
+          <div class="sigil-vibhakti">पञ्चमी (-आत्)</div>
+          <div class="sigil-desc"><strong>Source Address:</strong> Load value from this memory address</div>
+        </div>
+
+        <div class="sigil-card">
+          <div class="sigil-symbol">य्</div>
+          <div class="sigil-name">सम्प्रदान (Sampradana)</div>
+          <div class="sigil-vibhakti">चतुर्थी (-आय)</div>
+          <div class="sigil-desc"><strong>Dest Address:</strong> Store value to this memory address / Jump target</div>
+        </div>
+
+        <div class="sigil-card">
+          <div class="sigil-symbol">ए</div>
+          <div class="sigil-name">अधिकरण (Adhikarana)</div>
+          <div class="sigil-vibhakti">सप्तमी (-ए)</div>
+          <div class="sigil-desc"><strong>Locus:</strong> At / In the specified environment</div>
+        </div>
+      </div>
+
+      <!-- Comparison Demo -->
+      <div style="margin-top: 2rem; background: #040612; border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 10px; padding: 1.5rem;">
+        <h4 style="color: var(--dev-gold); margin-top: 0;">Syntax Comparison: Load vs Store</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; font-family: var(--font-mono); font-size: 0.95rem;">
+          <div>
+            <span style="color: var(--dev-cyan);">// Load register क from address [ख + 0x8]</span>
+            <div style="color: #fff; margin-top: 0.3rem;">आहारः कम् खत् ०षोड्८ ।</div>
+          </div>
+          <div>
+            <span style="color: var(--dev-gold);">// Store register क to address [ख + 0x8]</span>
+            <div style="color: #fff; margin-top: 0.3rem;">निधानम् खय् ०षोड्८ कन ।</div>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--dev-text-muted); margin-top: 1rem; margin-bottom: 0;">
+          <strong>No ambiguity:</strong> The difference between a load and a store is purely in which register carries the <code style="color: var(--dev-cyan);">त्</code> (अपादान / load from) vs <code style="color: var(--dev-gold);">य्</code> (सम्प्रदान / store to) sigil.
+        </p>
+      </div>
+    </section>
+
+    <!-- Feather-Light Rocket Ship Philosophy (100X Superiority Table) -->
+    <section id="philosophy" style="margin: 5rem 0;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="dev-hero-badge">॥ लघु-सिद्धान्तः ॥</span>
+        <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin: 0.5rem 0;">The 100X Mass Reduction Law</h2>
+        <p style="color: var(--dev-text-muted); max-width: 800px; margin: 0 auto;">
+          <em>"The rocket does not go faster by burning harder. It goes faster by weighing less."</em> Mass is the one thing computing never paid down.
+        </p>
+      </div>
+
+      <div class="ref-table-wrapper">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Computing Axis</th>
+              <th>Legacy Industry Standard</th>
+              <th>SanOS Architecture</th>
+              <th>Efficiency Factor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Kernel Binary Size</strong></td>
+              <td>Linux 10–100 MB</td>
+              <td style="color: var(--dev-gold); font-weight: 600;">64 KiB</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">150–1500×</span></td>
+            </tr>
+            <tr>
+              <td><strong>Security-Fix Download Delta</strong></td>
+              <td>100s of MB</td>
+              <td style="color: var(--dev-gold); font-weight: 600;">64 KiB</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">~1000×</span></td>
+            </tr>
+            <tr>
+              <td><strong>Build Mass Ratio (BMR)</strong></td>
+              <td>Cargo 100–1000× &bull; Chromium ~400×</td>
+              <td style="color: var(--dev-gold); font-weight: 600;">&le; 2×</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">50–500×</span></td>
+            </tr>
+            <tr>
+              <td><strong>Idle Desktop Memory</strong></td>
+              <td>2–8 GB RAM</td>
+              <td style="color: var(--dev-gold); font-weight: 600;">32 MB RAM</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">60–250×</span></td>
+            </tr>
+            <tr>
+              <td><strong>Hello-World Binary</strong></td>
+              <td>Rust ~300 KB &bull; C++ ~50 KB</td>
+              <td style="color: var(--dev-gold); font-weight: 600;">4 KiB ELF</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">75×</span></td>
+            </tr>
+            <tr>
+              <td><strong>Full OS Installation</strong></td>
+              <td>4–15 GB</td>
+              <td style="color: var(--dev-gold); font-weight: 600;">256 MB (Full GUI)</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">16–60×</span></td>
+            </tr>
+            <tr>
+              <td><strong>Cold Boot to Shell</strong></td>
+              <td>15–60 seconds</td>
+              <td style="color: var(--dev-gold); font-weight: 600;">&le; 1 second</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">15–60×</span></td>
+            </tr>
+            <tr>
+              <td><strong>Full Toolchain Footprint</strong></td>
+              <td>~200 MB – 1 GB</td>
+              <td style="color: var(--dev-gold); font-weight: 600;">8 MB (साधनम्)</td>
+              <td><span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">25×</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Interactive Educational Curriculum -->
+    <section id="curriculum" style="margin: 5rem 0;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="dev-hero-badge">॥ शिक्षा-क्रमः ॥</span>
+        <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin: 0.5rem 0;">Sassembly Developer Curriculum</h2>
+        <p style="color: var(--dev-text-muted); max-width: 750px; margin: 0 auto;">A structured 6-lesson masterclass from absolute basics to bare-metal OS engineering.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        
+        <!-- Lesson 1 -->
+        <div class="dev-card" style="padding: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="portal-badge">पाठ १ (Lesson 1)</span>
+            <span style="color: var(--dev-gold); font-size: 0.9rem;">वाक्यरचना & पञ्च-कारकाणि</span>
+          </div>
+          <h3 style="font-size: 1.5rem; margin: 0 0 0.75rem;">The Anatomy of a Sassembly Sentence</h3>
+          <p>
+            Every Sassembly instruction is a complete Sanskrit sentence (वाक्य). The <strong>first word is always the Verb</strong> (mnemonic), followed by kāraka-tagged operands in any order, terminated with a daṇḍa (<code>।</code>).
+          </p>
+          <div class="dev-code-block">
+            <div class="dev-code-header">
+              <span class="file-title">⚡ lesson1_syntax.sas</span>
+              <a href="playground.html" style="color: var(--dev-cyan); text-decoration: none;">Try in Playground &rarr;</a>
+            </div>
+            <pre class="dev-code-content"><code>॰ Lesson 1: Basic addition
+योगः क्षणिक०म् क्षणिक१न क्षणिक२न ।  ॰ क्षणिक० &larr; क्षणिक१ + क्षणिक२
+योगः क्षणिक०म् क्षणिक१न १०न ।       ॰ Add immediate 10 to t1 and store in t0</code></pre>
+          </div>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="dev-card" style="padding: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="portal-badge">पाठ २ (Lesson 2)</span>
+            <span style="color: var(--dev-gold); font-size: 0.9rem;">सङ्ख्याः & कोष्ठकाणि</span>
+          </div>
+          <h3 style="font-size: 1.5rem; margin: 0 0 0.75rem;">Registers, Numerals & Extents (व्याप्ति)</h3>
+          <p>
+            Registers span from <code>शून्यः</code> (zero), <code>पुनःस्थानम्</code> (ra), <code>स्तूपसूचकः</code> (sp) to temporaries <code>क्षणिक०..क्षणिक६</code> and arguments <code>अर्थ०..अर्थ७</code>. Sizing suffixes (<code>ॱअ८</code>, <code>ॱअ१६</code>, <code>ॱअ३२</code>, <code>ॱअ६४</code>) select bit widths.
+          </p>
+          <div class="dev-code-block">
+            <div class="dev-code-header">
+              <span class="file-title">⚡ lesson2_numerals.sas</span>
+              <a href="playground.html" style="color: var(--dev-cyan); text-decoration: none;">Try in Playground &rarr;</a>
+            </div>
+            <pre class="dev-code-content"><code>॰ Hexadecimal prefix ०षोड् (A=अ, B=आ, C=इ, D=ई, E=उ, F=ऊ)
+उपरिभारः क्षणिक०म् ०षोड्१००००न ।   ॰ Load Upper Immediate 0x10000
+योगः क्षणिक१म् शून्यःन ०द्वि१०११०न । ॰ Binary immediate 0b10110 (22)</code></pre>
+          </div>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="dev-card" style="padding: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="portal-badge">पाठ ३ (Lesson 3)</span>
+            <span style="color: var(--dev-gold); font-size: 0.9rem;">स्मृति-क्रियाः (Memory)</span>
+          </div>
+          <h3 style="font-size: 1.5rem; margin: 0 0 0.75rem;">Memory Operations: Load (आहारः) & Store (निधानम्)</h3>
+          <p>
+            Loading from memory uses <code>आहारः</code> with the <code>त्</code> (अपादान) sigil. Storing to memory uses <code>निधानम्</code> with the <code>य्</code> (सम्प्रदान) sigil.
+          </p>
+          <div class="dev-code-block">
+            <div class="dev-code-header">
+              <span class="file-title">⚡ lesson3_memory.sas</span>
+              <a href="playground.html" style="color: var(--dev-cyan); text-decoration: none;">Try in Playground &rarr;</a>
+            </div>
+            <pre class="dev-code-content"><code>॰ Load 8-bit byte from [क्षणिक१ + 0] into क्षणिक२
+आहारःॱअ८ क्षणिक२म् क्षणिक१त् ०न ।
+
+॰ Store 8-bit byte from क्षणिक२ into [क्षणिक० + 0]
+निधानम्ॱअ८ क्षणिक०य् ०न क्षणिक२न ।</code></pre>
+          </div>
+        </div>
+
+        <!-- Lesson 4 -->
+        <div class="dev-card" style="padding: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="portal-badge">पाठ ४ (Lesson 4)</span>
+            <span style="color: var(--dev-gold); font-size: 0.9rem;">नियन्त्रण-प्रवाहः (Control Flow)</span>
+          </div>
+          <h3 style="font-size: 1.5rem; margin: 0 0 0.75rem;">Branches, Jumps and Loops</h3>
+          <p>
+            Branching uses conditional verbs like <code>समलङ्घनम्</code> (BEQ), <code>विषमलङ्घनम्</code> (BNE), <code>न्यूनलङ्घनम्</code> (BLT), and unconditional <code>लङ्घनम्</code> (JAL) to jump to labels (<code>नामपदम्ॱॱ</code>).
+          </p>
+          <div class="dev-code-block">
+            <div class="dev-code-header">
+              <span class="file-title">⚡ lesson4_loops.sas</span>
+              <a href="playground.html" style="color: var(--dev-cyan); text-decoration: none;">Try in Playground &rarr;</a>
+            </div>
+            <pre class="dev-code-content"><code>गणना_चक्रम्ॱॱ
+वियोगः क्षणिक०म् क्षणिक०न १न ।
+विषमलङ्घनम् क्षणिक०न शून्यःत् गणना_चक्रम्य् । ॰ Loop until t0 == 0</code></pre>
+          </div>
+        </div>
+
+        <!-- Lesson 5 -->
+        <div class="dev-card" style="padding: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="portal-badge">पाठ ५ (Lesson 5)</span>
+            <span style="color: var(--dev-gold); font-size: 0.9rem;">द्विविध-चालनम् (Dual Execution Modes)</span>
+          </div>
+          <h3 style="font-size: 1.5rem; margin: 0 0 0.75rem;">Boot Proofs (धातु-प्रमाणम्) vs Applications (अतिथि-अनुप्रयोगः)</h3>
+          <p>
+            <strong>Boot Proofs</strong> (bare-metal S-mode) boot at <code>0x80000000</code> and own the UART hardware device at <code>0x10000000</code>. <strong>Applications</strong> (U-mode) are placed at <code>0x20000000</code> and write only to granted supervisor surfaces via <code>आज्ञापनम्</code> (ecall).
+          </p>
+        </div>
+
+        <!-- Lesson 6 -->
+        <div class="dev-card" style="padding: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="portal-badge">पाठ ६ (Lesson 6)</span>
+            <span style="color: var(--dev-gold); font-size: 0.9rem;">संस्कृतिः सम्पादकः (Sanskriti IDE)</span>
+          </div>
+          <h3 style="font-size: 1.5rem; margin: 0 0 0.75rem;">Sanskriti VS Code Extension & Sadhana Toolchain</h3>
+          <p>
+            The official Sanskriti extension brings full Devanagari syntax highlighting, akṣara-granular backspacing across the <code>seema</code> bridge, and one-key execution: <code>संकलनम् चालनम् च</code> (<code>Cmd/Ctrl+Enter</code>).
+          </p>
+          <div class="dev-code-block">
+            <div class="dev-code-header">
+              <span class="file-title">🛠️ Toolchain Command</span>
+            </div>
+            <pre class="dev-code-content"><code># Run the official Sassembly toolchain via Sadhana
+cargo run -p sadhana -- spec/namaste.sas /tmp/namaste.elf
+cargo run -p yantra --bin yantra-run -- /tmp/namaste.elf</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Sanskriti AI Studio Simulator -->
+    <section id="sanskriti-ai" class="ai-studio-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="portal-badge" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; border-color: rgba(168, 85, 247, 0.4);">
+            नालन्दा (62M) &bull; गोवर्धनः (1M) Sanskrit LLM Builder
+          </span>
+          <h2 style="font-family: var(--font-heading); font-size: 2rem; margin: 0.5rem 0;">Sanskriti AI Software Studio</h2>
+        </div>
+        <span style="color: var(--dev-cyan); font-size: 0.9rem;">Natural Language &rarr; Sassembly</span>
+      </div>
+      
+      <p style="color: var(--dev-text-muted); margin-top: 0.5rem;">
+        Describe what you want to build in English, Hindi, or Sanskrit. The Sanskriti engine translates natural language specifications into mathematically rigorous Devanagari Sassembly.
+      </p>
+
+      <div class="ai-input-group">
+        <input type="text" id="aiPromptInput" class="ai-prompt-input" value="Write a program to multiply 15 by 8 and print the result to UART" placeholder="उदा: Write a Fibonacci sequence generator in Sassembly..." />
+        <button id="btnAiGenerate" class="btn-dev btn-dev-primary" style="padding: 0.9rem 1.8rem;">
+          ✨ Generate Sassembly
+        </button>
+      </div>
+
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+        <span style="font-size: 0.8rem; color: var(--dev-text-dim); align-self: center;">Try Prompts:</span>
+        <button class="token-pill ai-preset" data-prompt="Write a bare-metal Hello World UART program">Hello World (नमस्ते)</button>
+        <button class="token-pill ai-preset" data-prompt="Multiply 12 by 9 using Vedic arithmetic">Vedic Multiplication</button>
+        <button class="token-pill ai-preset" data-prompt="Create a loop that counts down from 10 to 0">Countdown Loop</button>
+        <button class="token-pill ai-preset" data-prompt="U-mode Guest Application writing to supervisor surface">Supervisor App</button>
+      </div>
+
+      <div class="dev-code-block" id="aiResultBox" style="display: none;">
+        <div class="dev-code-header">
+          <span class="file-title" id="aiGeneratedTitle">⚡ generated_code.sas</span>
+          <button id="btnAiLoadPlayground" class="btn-dev" style="padding: 0.2rem 0.6rem; font-size: 0.8rem; background: rgba(0, 240, 255, 0.2); color: var(--dev-cyan);">
+            Open in Playground &rarr;
+          </button>
+        </div>
+        <pre class="dev-code-content"><code id="aiGeneratedCode"></code></pre>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="text-align: center; padding: 4rem 1rem 2rem; background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 70%); border-radius: 20px;">
+      <h2 style="font-family: var(--font-heading); font-size: 2.4rem; margin-bottom: 1rem;">Ready to Build Sanskrit-Native Software?</h2>
+      <p style="color: var(--dev-text-muted); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">
+        Open the interactive Sassembly IDE right in your browser or explore the 49 instruction families in our reference guide.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="playground.html" class="btn-dev btn-dev-primary" style="padding: 0.9rem 2rem; font-size: 1.1rem;">Launch Playground ⚡</a>
+        <a href="reference.html" class="btn-dev" style="padding: 0.9rem 2rem; font-size: 1.1rem;">Browse ISA Reference 📖</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 3rem 1rem; color: var(--dev-text-dim); border-top: 1px solid var(--dev-border); margin-top: 4rem;">
+    <p>॥ ॐ तत् सत् ॥ &bull; ParamTatva.org &bull; Sacred Knowledge of Sadgurudev Nikhileswarananda</p>
+  </footer>
+
+  <script src="js/sassembly-engine.js"></script>
+  <script>
+    // Sanskriti AI Studio Interactive Prompt Demo
+    document.addEventListener('DOMContentLoaded', () => {
+      const promptInput = document.getElementById('aiPromptInput');
+      const btnGenerate = document.getElementById('btnAiGenerate');
+      const resultBox = document.getElementById('aiResultBox');
+      const generatedCodeElem = document.getElementById('aiGeneratedCode');
+      const btnLoadPlayground = document.getElementById('btnAiLoadPlayground');
+      const presets = document.querySelectorAll('.ai-preset');
+
+      presets.forEach(p => {
+        p.addEventListener('click', () => {
+          promptInput.value = p.getAttribute('data-prompt');
+          generateSassembly();
+        });
+      });
+
+      btnGenerate.addEventListener('click', generateSassembly);
+
+      function generateSassembly() {
+        const text = promptInput.value.toLowerCase();
+        let code = '';
+
+        if (text.includes('hello') || text.includes('namaste') || text.includes('नमस्ते')) {
+          code = Sassembly.PRESET_PROGRAMS['namaste'].code;
+        } else if (text.includes('multipl') || text.includes('गुणन') || text.includes('vedic')) {
+          code = Sassembly.PRESET_PROGRAMS['gunanam'].code;
+        } else if (text.includes('app') || text.includes('supervisor') || text.includes('guest') || text.includes('अतिथि')) {
+          code = Sassembly.PRESET_PROGRAMS['atithi'].code;
+        } else {
+          code = Sassembly.PRESET_PROGRAMS['fibonacci'].code;
+        }
+
+        generatedCodeElem.textContent = code;
+        resultBox.style.display = 'block';
+        resultBox.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      btnLoadPlayground.addEventListener('click', () => {
+        window.location.href = 'playground.html';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+/**
+ * यन्त्र (Yantra) CLI — RISC-V 64-bit Sassembly Virtual Machine & Host Runner
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+// Load Sassembly Engine
+const enginePath = path.resolve(__dirname, '..', 'js', 'sassembly-engine.js');
+if (fs.existsSync(enginePath)) {
+  const engineCode = fs.readFileSync(enginePath, 'utf8');
+  new Function('global', engineCode)(global);
+}
+
+const args = process.argv.slice(2);
+
+if (args.length < 1 || args.includes('--help') || args.includes('-h')) {
+  console.log(`\x1b[33mयन्त्र (Yantra) — RISC-V 64-bit Sassembly Runner\x1b[0m
+उपयोगः: yantra <image.elf | source.sas> [--mode boot|app] [--budget <cycles>]
+        yantra -v | --version
+
+विकल्पाः:
+  --mode <boot|app>  Execution mode: boot-proof (UART) vs application (supervisor host)
+  --budget <cycles>  Cycle budget limit (default: 100000)
+  -v, --version      Show version info`);
+  process.exit(0);
+}
+
+const targetFile = args.find(a => !a.startsWith('-'));
+if (!targetFile || !fs.existsSync(targetFile)) {
+  console.error(`\x1b[31mदोषः: पत्रम् न प्राप्तम् (${targetFile || 'no input file'} not found)\x1b[0m`);
+  process.exit(1);
+}
+
+const isApp = args.includes('--mode') && args[args.indexOf('--mode') + 1] === 'app';
+const sourceCode = fs.readFileSync(targetFile, 'utf8');
+
+console.log(`\x1b[36m[यन्त्र]\x1b[0m चालनम् आरभ्यते: ${targetFile} [Mode: ${isApp ? 'अतिथि (App)' : 'धातु (Boot-Proof)'}]`);
+
+if (global.Sassembly && global.Sassembly.VM) {
+  const vm = new global.Sassembly.VM();
+  const loaded = vm.loadProgram(sourceCode, isApp);
+  if (!loaded.success) {
+    loaded.errors.forEach(e => console.error(`\x1b[31mदोषः [Line ${e.line}]: ${e.text}\x1b[0m`));
+    process.exit(1);
+  }
+  const result = vm.run();
+  if (result.uart) {
+    console.log(`\x1b[32mUART:\x1b[0m ${result.uart}`);
+  }
+  if (result.surface) {
+    console.log(`\x1b[34mSURFACE:\x1b[0m ${result.surface}`);
+  }
+  console.log(`\x1b[33mhalt:\x1b[0m ${result.reason} (Cycles: ${result.cycles})`);
+}

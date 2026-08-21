@@ -237,18 +237,19 @@ body {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: var(--space-md);
+  gap: 1.25rem;
   align-items: center;
 }
 
 .nav-links a {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   color: var(--color-soft-white);
   text-decoration: none;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   transition: color 0.3s ease;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanskriti Software Builder Studio | ParamTatva.org</title>
+  <meta name="description" content="Tokenless, declarative Sanskrit software builder. Describe software requirements in natural language and synthesize zero-bloat Sassembly code instantly." />
+  <meta name="keywords" content="Sanskriti Builder, Sassembly Synthesis, Sanskrit Software, Tokenless AI Builder, SanOS, ParamTatva" />
+  <meta name="theme-color" content="#050714" />
+  <link rel="canonical" href="https://paramtatva.org/builder.html" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/developer.css" />
+</head>
+<body class="dev-body">
+  <!-- Cosmic Grid -->
+  <div class="dev-cosmic-bg">
+    <div class="dev-grid-overlay"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="dev-navbar">
+    <a href="index.html" class="dev-nav-brand">
+      <span class="sanskrit-mark">परमतत्त्व</span>
+      <span class="portal-badge">संस्कृतिः Software Builder</span>
+    </a>
+    <ul class="dev-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="developer.html">Developer Hub</a></li>
+      <li><a href="learn.html">Learning Academy</a></li>
+      <li><a href="builder.html" class="active">Sanskriti Builder ✨</a></li>
+      <li><a href="playground.html">Playground ⚡</a></li>
+      <li><a href="install.html">Install Kit 📦</a></li>
+    </ul>
+  </nav>
+
+  <div class="dev-container">
+    
+    <div class="dev-hero" style="padding: 2.5rem 1rem 1.5rem;">
+      <span class="dev-hero-badge">॥ संस्कृतिः • निर्माता • निःशुल्क-रचना ॥</span>
+      <h1 style="font-size: 2.6rem; margin-bottom: 0.5rem;">Tokenless Sanskrit Software Builder</h1>
+      <p class="subtitle" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+        Generate mathematically verified, zero-bloat Sassembly software directly from specifications. No API tokens, no monthly billing, zero third-party dependencies.
+      </p>
+    </div>
+
+    <!-- Step 1: Natural Language Requirements Input -->
+    <div class="ai-studio-box" style="margin-top: 1rem;">
+      <h3 style="color: var(--dev-gold); margin-top: 0; display: flex; align-items: center; justify-content: space-between;">
+        <span>१. आवश्यकता-प्रविष्टिः (Define Requirements)</span>
+        <span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Token-Free Deterministic Synthesis</span>
+      </h3>
+      <p style="color: var(--dev-text-muted); font-size: 0.95rem;">
+        Type the software behavior, system target, or algorithmic purpose in English, Hindi, or Sanskrit:
+      </p>
+
+      <div class="ai-input-group">
+        <input type="text" id="builderPromptInput" class="ai-prompt-input" value="Create a bare-metal UART driver that outputs 'ParamTatva OS Online'" placeholder="उदा: Build a Vedic matrix multiplier, Write a U-Mode Guest application..." />
+        <button id="btnSynthesize" class="btn-dev btn-dev-primary" style="padding: 0.9rem 1.8rem;">
+          ⚡ Build Sassembly App
+        </button>
+      </div>
+
+      <!-- Quick Template Blueprints -->
+      <div style="margin-top: 1.5rem;">
+        <span style="font-size: 0.85rem; color: var(--dev-text-dim); display: block; margin-bottom: 0.5rem;">Or Pick an Architectural Blueprint:</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+          <button class="token-pill bp-btn" data-bp="uart_output" style="text-align: left; padding: 0.6rem 0.8rem;">
+            <strong style="color: var(--dev-gold); display: block;">UART Driver (E1)</strong>
+            <span style="font-size: 0.75rem; color: var(--dev-text-muted);">Bare-metal MMIO 0x10000000</span>
+          </button>
+          <button class="token-pill bp-btn" data-bp="vedic_math" style="text-align: left; padding: 0.6rem 0.8rem;">
+            <strong style="color: var(--dev-gold); display: block;">Vedic 64-bit Math</strong>
+            <span style="font-size: 0.75rem; color: var(--dev-text-muted);">High-precision arithmetic</span>
+          </button>
+          <button class="token-pill bp-btn" data-bp="loop_counter" style="text-align: left; padding: 0.6rem 0.8rem;">
+            <strong style="color: var(--dev-gold); display: block;">Branching Loop</strong>
+            <span style="font-size: 0.75rem; color: var(--dev-text-muted);">Branch control & counters</span>
+          </button>
+          <button class="token-pill bp-btn" data-bp="guest_app" style="text-align: left; padding: 0.6rem 0.8rem;">
+            <strong style="color: var(--dev-gold); display: block;">U-Mode Guest App</strong>
+            <span style="font-size: 0.75rem; color: var(--dev-text-muted);">Isolated supervisor surface</span>
+          </button>
+          <button class="token-pill bp-btn" data-bp="memory_buffer" style="text-align: left; padding: 0.6rem 0.8rem;">
+            <strong style="color: var(--dev-gold); display: block;">Memory Buffer</strong>
+            <span style="font-size: 0.75rem; color: var(--dev-text-muted);">Byte array scanner/modifier</span>
+          </button>
+          <button class="token-pill bp-btn" data-bp="terminal_pty" style="text-align: left; padding: 0.6rem 0.8rem;">
+            <strong style="color: var(--dev-gold); display: block;">Dvarapala PTY</strong>
+            <span style="font-size: 0.75rem; color: var(--dev-text-muted);">Smart Sanskrit Terminal</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Synthesis Results & Live Verification -->
+    <div id="synthesisOutputArea" style="margin-top: 3rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="color: var(--dev-gold); margin: 0;">
+          २. निर्मित-सस्सेम्बली पत्रम् (Synthesized Sassembly Code)
+        </h3>
+        <div style="display: flex; gap: 0.5rem;">
+          <button id="btnRunInVM" class="btn-dev btn-dev-primary" style="padding: 0.4rem 1rem;">
+            ▶ Test & Run in Embedded VM
+          </button>
+          <button id="btnOpenPlayground" class="btn-dev" style="padding: 0.4rem 1rem;">
+            Open in Web IDE ⚡
+          </button>
+          <button id="btnDownloadSas" class="btn-dev" style="padding: 0.4rem 1rem;">
+            📥 Download .sas
+          </button>
+        </div>
+      </div>
+
+      <!-- Code Box -->
+      <div class="dev-code-block">
+        <div class="dev-code-header">
+          <span class="file-title" id="outputFileName">⚡ sanskriti_app.sas</span>
+          <span style="color: var(--dev-green); font-size: 0.8rem;">✓ 100% Deterministic Orthographic Closure</span>
+        </div>
+        <pre class="dev-code-content"><code id="synthesizedCode"></code></pre>
+      </div>
+
+      <!-- Live VM Test Box -->
+      <div id="vmTestBox" style="display: none; margin-top: 2rem; background: var(--dev-surface); border: 1px solid var(--dev-border); border-radius: 12px; padding: 1.5rem;">
+        <h4 style="color: var(--dev-gold); margin-top: 0; display: flex; justify-content: space-between;">
+          <span>Embedded VM Execution Verdict</span>
+          <span id="vmVerdictBadge" class="badge-live">Pass</span>
+        </h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <span style="font-size: 0.8rem; color: var(--dev-text-muted);">UART Output:</span>
+            <pre class="terminal-display" id="builderUartOut" style="min-height: 80px; margin-top: 0.3rem; border-radius: 6px;"></pre>
+          </div>
+          <div>
+            <span style="font-size: 0.8rem; color: var(--dev-text-muted);">Supervisor Surface Output:</span>
+            <pre class="surface-display" id="builderSurfaceOut" style="min-height: 80px; margin-top: 0.3rem; border-radius: 6px;"></pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 3rem 1rem; color: var(--dev-text-dim); border-top: 1px solid var(--dev-border); margin-top: 4rem;">
+    <p>॥ ॐ तत् सत् ॥ &bull; ParamTatva.org &bull; Sanskriti Software Builder Engine</p>
+  </footer>
+
+  <script src="js/sassembly-engine.js"></script>
+  <script src="js/builder-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const promptInput = document.getElementById('builderPromptInput');
+      const btnSynthesize = document.getElementById('btnSynthesize');
+      const synthesizedCodeElem = document.getElementById('synthesizedCode');
+      const btnRunInVM = document.getElementById('btnRunInVM');
+      const btnOpenPlayground = document.getElementById('btnOpenPlayground');
+      const btnDownloadSas = document.getElementById('btnDownloadSas');
+      const vmTestBox = document.getElementById('vmTestBox');
+      const builderUartOut = document.getElementById('builderUartOut');
+      const builderSurfaceOut = document.getElementById('builderSurfaceOut');
+      const vmVerdictBadge = document.getElementById('vmVerdictBadge');
+      const bpButtons = document.querySelectorAll('.bp-btn');
+
+      let currentCode = '';
+      let currentTier = 'proof';
+
+      function synthesize(promptText) {
+        const result = SanskritiBuilder.synthesizeFromPrompt(promptText);
+        currentCode = result.code;
+        currentTier = result.blueprint.tier;
+        synthesizedCodeElem.textContent = currentCode;
+        vmTestBox.style.display = 'none';
+      }
+
+      // Initial synthesis
+      synthesize(promptInput.value);
+
+      btnSynthesize.addEventListener('click', () => {
+        synthesize(promptInput.value);
+      });
+
+      bpButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const bpKey = btn.getAttribute('data-bp');
+          const bp = SanskritiBuilder.BLUEPRINTS[bpKey];
+          if (bp) {
+            currentCode = bp.generate({});
+            currentTier = bp.tier;
+            synthesizedCodeElem.textContent = currentCode;
+            promptInput.value = bp.name;
+            vmTestBox.style.display = 'none';
+          }
+        });
+      });
+
+      btnRunInVM.addEventListener('click', () => {
+        const vm = new Sassembly.VM();
+        const isApp = currentTier === 'app';
+        const res = vm.loadProgram(currentCode, isApp);
+
+        if (!res.success) {
+          builderUartOut.textContent = res.errors.map(e => `दोषः [Line ${e.line}]: ${e.text}`).join('\n');
+          builderSurfaceOut.textContent = 'Assembly Failed';
+          vmVerdictBadge.textContent = '✗ Error';
+          vmVerdictBadge.style.background = 'rgba(239, 68, 68, 0.2)';
+          vmVerdictBadge.style.color = '#f87171';
+        } else {
+          const run = vm.run();
+          builderUartOut.textContent = run.uart || '(UART Empty)';
+          builderSurfaceOut.textContent = run.surface || '(Surface Empty)';
+          vmVerdictBadge.textContent = '✓ ' + run.reason;
+          vmVerdictBadge.style.background = 'rgba(16, 185, 129, 0.2)';
+          vmVerdictBadge.style.color = '#10b981';
+        }
+        vmTestBox.style.display = 'block';
+        vmTestBox.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      btnOpenPlayground.addEventListener('click', () => {
+        window.location.href = 'playground.html';
+      });
+
+      btnDownloadSas.addEventListener('click', () => {
+        const blob = new Blob([currentCode], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'sanskriti_app.sas';
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    });
+  </script>
+</body>
+</html>

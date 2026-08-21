@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download & Install Sassembly & Sanskriti Toolchain | ParamTatva.org</title>
+  <meta name="description" content="Direct installation kit for Sassembly compiler (Sadhana), RISC-V runner (Yantra), and Sanskriti IDE extension." />
+  <meta name="keywords" content="Install Sassembly, Download Sadhana Compiler, Yantra RISC-V, Sanskriti IDE, SanOS Toolchain, ParamTatva" />
+  <meta name="theme-color" content="#050714" />
+  <link rel="canonical" href="https://paramtatva.org/install.html" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/developer.css" />
+  <style>
+    .install-cmd-box {
+      background: #040612;
+      border: 1px solid var(--dev-border-glow);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      color: var(--dev-cyan);
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+    }
+    .install-copy-btn {
+      background: rgba(0, 240, 255, 0.15);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      color: #fff;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .install-copy-btn:hover {
+      background: rgba(0, 240, 255, 0.3);
+    }
+  </style>
+</head>
+<body class="dev-body">
+  <div class="dev-cosmic-bg"><div class="dev-grid-overlay"></div></div>
+
+  <!-- Navbar -->
+  <nav class="dev-navbar">
+    <a href="index.html" class="dev-nav-brand">
+      <span class="sanskrit-mark">परमतत्त्व</span>
+      <span class="portal-badge">Installation Kit</span>
+    </a>
+    <ul class="dev-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="developer.html">Developer Hub</a></li>
+      <li><a href="learn.html">Learning Academy 📚</a></li>
+      <li><a href="builder.html">Sanskriti Builder ✨</a></li>
+      <li><a href="playground.html">Playground ⚡</a></li>
+      <li><a href="install.html" class="active">Install Kit 📦</a></li>
+    </ul>
+  </nav>
+
+  <div class="dev-container">
+    
+    <div class="dev-hero" style="padding: 2.5rem 1rem 1.5rem;">
+      <span class="dev-hero-badge">॥ साधनम् • यन्त्रम् • प्रतिष्ठापनम् ॥</span>
+      <h1 style="font-size: 2.6rem; margin-bottom: 0.5rem;">Direct Toolchain Installation</h1>
+      <p class="subtitle" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+        Install the complete Sassembly compiler, RISC-V runner, Sanskriti software builder, and VS Code extension directly on macOS or Linux.
+      </p>
+    </div>
+
+    <!-- Quick 1-Line Installer -->
+    <div class="dev-card" style="padding: 2rem; border-color: var(--dev-gold);">
+      <h3 style="color: var(--dev-gold); margin-top: 0; display: flex; align-items: center; justify-content: space-between;">
+        <span>⚡ 1-Line Universal Installer (macOS & Linux)</span>
+        <span class="portal-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Zero 3rd-Party Runtime Dependencies</span>
+      </h3>
+      <p style="color: var(--dev-text-muted);">
+        Run this command in your terminal to automatically install <code>sadhana</code>, <code>yantra</code>, and <code>sanskriti</code> into <code>~/.sansos/bin</code> and configure your shell environment:
+      </p>
+
+      <div class="install-cmd-box">
+        <code id="cmdCurl">curl -sSL https://paramtatva.org/tools/install.sh | bash</code>
+        <button class="install-copy-btn" onclick="copyCommand('cmdCurl', this)">📋 Copy</button>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--dev-text-dim); margin-bottom: 0;">
+        Works out-of-the-box on Apple Silicon (M1/M2/M3/M4), Intel Mac, Ubuntu, Debian, Fedora, Arch, and Raspberry Pi.
+      </p>
+    </div>
+
+    <!-- Git Clone Direct Setup -->
+    <div class="dev-card" style="padding: 2rem; margin-top: 2rem;">
+      <h3 style="color: #fff; margin-top: 0;">📦 Direct Git Clone Setup</h3>
+      <p style="color: var(--dev-text-muted);">
+        Clone the ParamTatva repository directly and run the embedded setup scripts:
+      </p>
+
+      <div class="install-cmd-box">
+        <code id="cmdGit">git clone https://github.com/ParamTatva-org/site.git && cd site && ./tools/install.sh</code>
+        <button class="install-copy-btn" onclick="copyCommand('cmdGit', this)">📋 Copy</button>
+      </div>
+    </div>
+
+    <!-- Embedded Toolchain Components -->
+    <div style="margin-top: 4rem;">
+      <h2 style="font-family: var(--font-heading); font-size: 2rem; color: #fff; text-align: center; margin-bottom: 2rem;">
+        What Gets Installed
+      </h2>
+
+      <div class="dev-grid-3">
+        <div class="dev-card">
+          <div class="dev-card-icon">⚙️</div>
+          <h3>
+            <span>साधनम् (Sadhana)</span>
+            <span class="dev-sanskrit-tag">Assembler & Linker</span>
+          </h3>
+          <p>
+            Devanagari Sassembly compiler and ELF64 linker (Kosha) with zero GNU dependencies. Emits valid RISC-V 64-bit binaries.
+          </p>
+          <div class="dev-code-block">
+            <pre class="dev-code-content"><code>sadhana program.sas program.elf</code></pre>
+          </div>
+        </div>
+
+        <div class="dev-card">
+          <div class="dev-card-icon">🖥️</div>
+          <h3>
+            <span>यन्त्र (Yantra)</span>
+            <span class="dev-sanskrit-tag">RV64 Runner</span>
+          </h3>
+          <p>
+            Native RISC-V interpreter supporting bare-metal machine-mode boot proofs (UART MMIO) and isolated U-mode supervisor hosting.
+          </p>
+          <div class="dev-code-block">
+            <pre class="dev-code-content"><code>yantra program.sas --mode boot</code></pre>
+          </div>
+        </div>
+
+        <div class="dev-card">
+          <div class="dev-card-icon">✨</div>
+          <h3>
+            <span>संस्कृतिः (Sanskriti)</span>
+            <span class="dev-sanskrit-tag">Software Builder</span>
+          </h3>
+          <p>
+            Declarative, tokenless software synthesis CLI generating deterministic Sassembly code directly from requirements prompts.
+          </p>
+          <div class="dev-code-block">
+            <pre class="dev-code-content"><code>sanskriti build "UART Hello World"</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VS Code Extension -->
+    <div class="dev-card" style="padding: 2.5rem; margin-top: 3rem; background: linear-gradient(135deg, rgba(18, 25, 60, 0.8) 0%, rgba(10, 15, 40, 0.95) 100%);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="portal-badge" style="background: rgba(0, 240, 255, 0.2); color: var(--dev-cyan);">Official Editor Extension</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0;">संस्कृतिः (Sanskriti) for VS Code</h2>
+        </div>
+        <a href="https://github.com/ParamTatva-org/site" target="_blank" rel="noopener" class="btn-dev btn-dev-primary" style="padding: 0.7rem 1.5rem;">
+          View ParamTatva GitHub ↗
+        </a>
+      </div>
+
+      <p style="color: var(--dev-text-muted); margin-top: 1rem; line-height: 1.7;">
+        The Sanskriti extension transforms VS Code into a first-class Sanskrit IDE:
+      </p>
+
+      <ul style="color: var(--dev-text-main); font-size: 0.95rem; line-height: 1.8;">
+        <li><strong>File Association:</strong> Automatic recognition for <code>.sas</code> and <code>.सस</code> files.</li>
+        <li><strong>Akṣara-Aware Backspace:</strong> Akṣara cluster-granular deletion across the <code>seema</code> bridge so conjuncts are never partially deleted.</li>
+        <li><strong>Sanskrit Command Palette:</strong> <code>संकलनम् चालनम् च</code> (<code>Cmd/Ctrl+Enter</code>) to assemble, link, and run the open file into an integrated output panel.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 3rem 1rem; color: var(--dev-text-dim); border-top: 1px solid var(--dev-border); margin-top: 4rem;">
+    <p>॥ ॐ तत् सत् ॥ &bull; ParamTatva.org &bull; Sanskrit Computing Direct Installation Kit</p>
+  </footer>
+
+  <script>
+    function copyCommand(elemId, btn) {
+      const text = document.getElementById(elemId).textContent;
+      navigator.clipboard.writeText(text);
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✓ Copied!';
+      setTimeout(() => btn.innerHTML = orig, 1500);
+    }
+  </script>
+</body>
+</html>

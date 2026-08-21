@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sassembly Language Learning Academy | ParamTatva.org</title>
+  <meta name="description" content="Comprehensive 3-tier interactive curriculum to master Devanagari Sassembly, 64-bit RISC-V assembly, Sanskriti software builder, and SanOS systems engineering." />
+  <meta name="keywords" content="Learn Sassembly, Sanskrit Programming Course, RISC-V Assembly Tutorial, Sanskriti, SanOS Architecture, ParamTatva" />
+  <meta name="theme-color" content="#050714" />
+  <link rel="canonical" href="https://paramtatva.org/learn.html" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/developer.css" />
+  <style>
+    .learn-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 900px) {
+      .learn-layout { grid-template-columns: 1fr; }
+      .learn-sidebar { display: none; }
+    }
+    .learn-sidebar {
+      position: sticky;
+      top: 90px;
+      height: calc(100vh - 120px);
+      overflow-y: auto;
+      background: var(--dev-surface);
+      border: 1px solid var(--dev-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .learn-sidebar-tier {
+      margin-bottom: 1.5rem;
+    }
+    .learn-sidebar-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dev-gold);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .learn-nav-item {
+      display: block;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.85rem;
+      color: var(--dev-text-muted);
+      text-decoration: none;
+      border-radius: 6px;
+      margin-bottom: 0.2rem;
+      transition: all 0.15s ease;
+    }
+    .learn-nav-item:hover, .learn-nav-item.active {
+      color: #fff;
+      background: rgba(0, 240, 255, 0.12);
+      border-left: 3px solid var(--dev-cyan);
+    }
+    .lesson-section {
+      background: var(--dev-surface);
+      border: 1px solid var(--dev-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      scroll-margin-top: 100px;
+    }
+    .quiz-box {
+      background: rgba(10, 15, 35, 0.9);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .quiz-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-align: left;
+      width: 100%;
+      margin-top: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    .quiz-btn:hover {
+      background: rgba(0, 240, 255, 0.15);
+      border-color: var(--dev-cyan);
+    }
+    .quiz-feedback {
+      margin-top: 0.75rem;
+      font-weight: 500;
+      display: none;
+    }
+  </style>
+</head>
+<body class="dev-body">
+  <div class="dev-cosmic-bg"><div class="dev-grid-overlay"></div></div>
+
+  <!-- Navbar -->
+  <nav class="dev-navbar">
+    <a href="index.html" class="dev-nav-brand">
+      <span class="sanskrit-mark">परमतत्त्व</span>
+      <span class="portal-badge">Learning Academy</span>
+    </a>
+    <ul class="dev-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="developer.html">Developer Hub</a></li>
+      <li><a href="learn.html" class="active">Learning Academy 📚</a></li>
+      <li><a href="builder.html">Sanskriti Builder ✨</a></li>
+      <li><a href="playground.html">Playground ⚡</a></li>
+      <li><a href="install.html">Install Kit 📦</a></li>
+    </ul>
+  </nav>
+
+  <div class="dev-container">
+    
+    <div class="dev-hero" style="padding: 2.5rem 1rem 1.5rem;">
+      <span class="dev-hero-badge">॥ सस्सेम्बली विद्या-पीठम् ॥</span>
+      <h1 style="font-size: 2.6rem; margin-bottom: 0.5rem;">Sassembly Language Learning Academy</h1>
+      <p class="subtitle" style="font-size: 1.1rem; margin-bottom: 1rem;">
+        Master the world’s first Sanskrit-native 64-bit assembly language through 16 structured interactive lessons across Basic, Intermediate, and Advanced tiers.
+      </p>
+    </div>
+
+    <!-- Main Learning Layout -->
+    <div class="learn-layout">
+      
+      <!-- Sidebar Syllabus -->
+      <aside class="learn-sidebar">
+        <div class="learn-sidebar-tier">
+          <div class="learn-sidebar-title">Tier 1 · प्रारम्भिक स्तर (Basic)</div>
+          <a href="#lesson-1" class="learn-nav-item active">१. The Sanskrit Sentence</a>
+          <a href="#lesson-2" class="learn-nav-item">२. The 5 Kāraka Sigils</a>
+          <a href="#lesson-3" class="learn-nav-item">३. The 32 RV64 Registers</a>
+          <a href="#lesson-4" class="learn-nav-item">४. Sanskrit Numerals</a>
+          <a href="#lesson-5" class="learn-nav-item">५. Directives & Sections</a>
+        </div>
+
+        <div class="learn-sidebar-tier">
+          <div class="learn-sidebar-title">Tier 2 · मध्यम स्तर (Intermediate)</div>
+          <a href="#lesson-6" class="learn-nav-item">६. Arithmetic & Logic</a>
+          <a href="#lesson-7" class="learn-nav-item">७. Memory & Extents (व्याप्ति)</a>
+          <a href="#lesson-8" class="learn-nav-item">८. Control Flow & Branches</a>
+          <a href="#lesson-9" class="learn-nav-item">९. Akṣara Normalisation</a>
+          <a href="#lesson-10" class="learn-nav-item">१०. Calling Conventions</a>
+        </div>
+
+        <div class="learn-sidebar-tier">
+          <div class="learn-sidebar-title">Tier 3 · प्रौढ स्तर (Advanced)</div>
+          <a href="#lesson-11" class="learn-nav-item">११. Boot Proofs vs U-Mode</a>
+          <a href="#lesson-12" class="learn-nav-item">१२. Atomic Operations</a>
+          <a href="#lesson-13" class="learn-nav-item">१३. 64-bit Floating Point</a>
+          <a href="#lesson-14" class="learn-nav-item">१४. 3 Core System Elements</a>
+          <a href="#lesson-15" class="learn-nav-item">१५. Native Applications</a>
+          <a href="#lesson-16" class="learn-nav-item">१६. Zero-Mass Computing</a>
+        </div>
+      </aside>
+
+      <!-- Lessons Content Area -->
+      <main class="learn-content">
+
+        <!-- ================= TIER 1 ================= -->
+        <div style="margin-bottom: 2rem;">
+          <span class="portal-badge" style="background: rgba(255, 215, 0, 0.15); color: var(--dev-gold); border-color: rgba(255, 215, 0, 0.3);">
+            TIER 1 · प्रारम्भिक स्तर (BASIC FUNDAMENTALS)
+          </span>
+        </div>
+
+        <!-- Lesson 1 -->
+        <article class="lesson-section" id="lesson-1">
+          <span class="portal-badge">पाठ १ (Lesson 1)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">The Sanskrit Sentence (वाक्य) & First Verbs</h2>
+          <p>
+            In Sassembly, every instruction is structured as a complete Sanskrit sentence (वाक्य). Unlike Western assembly languages that rely on rigid syntax like <code>ADD R1, R2, R3</code> or bracketed memory operands <code>[R1 + 0x8]</code>, Sassembly follows natural Sanskrit grammar:
+          </p>
+          <ul>
+            <li><strong>Verb First:</strong> The first token in a statement is always the <em>Kriyāpada</em> (verb/mnemonic).</li>
+            <li><strong>Terminator Mark:</strong> Every instruction ends with a Pāṇinian daṇḍa (<code>।</code>).</li>
+            <li><strong>Comments:</strong> Comments start with a circle mark (<code>॰</code>) to end of line.</li>
+          </ul>
+
+          <div class="dev-code-block">
+            <div class="dev-code-header">
+              <span class="file-title">⚡ first_instruction.sas</span>
+              <a href="playground.html" style="color: var(--dev-cyan); text-decoration: none;">Run in Playground &rarr;</a>
+            </div>
+            <pre class="dev-code-content"><code>॰ Lesson 1: Our first Sassembly sentence
+योगः कम् खन गन ।    ॰ Mnemonic is योगः (ADD). Writes sum of ख and ग into क.</code></pre>
+          </div>
+
+          <div class="quiz-box">
+            <strong style="color: var(--dev-gold);">Comprehension Check:</strong>
+            <p style="margin: 0.25rem 0; font-size: 0.9rem;">What marks the end of an instruction statement in Sassembly?</p>
+            <button class="quiz-btn" onclick="checkQuiz(this, true, 'Correct! The daṇḍa (।) terminates every instruction statement.')">A) The daṇḍa (।)</button>
+            <button class="quiz-btn" onclick="checkQuiz(this, false, 'Incorrect. ॥ is used for assembler directives.')">B) Double daṇḍa (॥)</button>
+            <button class="quiz-btn" onclick="checkQuiz(this, false, 'Incorrect. Sassembly contains zero ASCII semicolons.')">C) Semicolon (;)</button>
+            <div class="quiz-feedback"></div>
+          </div>
+        </article>
+
+        <!-- Lesson 2 -->
+        <article class="lesson-section" id="lesson-2">
+          <span class="portal-badge">पाठ २ (Lesson 2)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">The 5 Kāraka Sigils (पञ्च-कारकाणि)</h2>
+          <p>
+            Operand roles in Sassembly are marked by <strong>kāraka sigils</strong> (derived from Sanskrit noun declensions / Vibhakti) rather than positional ordering:
+          </p>
+          <div class="sigil-grid" style="margin: 1.5rem 0;">
+            <div class="sigil-card">
+              <div class="sigil-symbol">म्</div>
+              <div class="sigil-name">कर्म (Karma)</div>
+              <div class="sigil-desc">Destination (Write here)</div>
+            </div>
+            <div class="sigil-card">
+              <div class="sigil-symbol">न</div>
+              <div class="sigil-name">करण (Karana)</div>
+              <div class="sigil-desc">Source (Read from here)</div>
+            </div>
+            <div class="sigil-card">
+              <div class="sigil-symbol">त्</div>
+              <div class="sigil-name">अपादान (Apadana)</div>
+              <div class="sigil-desc">Load Address (Load from [addr])</div>
+            </div>
+            <div class="sigil-card">
+              <div class="sigil-symbol">य्</div>
+              <div class="sigil-name">सम्प्रदान (Sampradana)</div>
+              <div class="sigil-desc">Store Address (Store to [addr])</div>
+            </div>
+            <div class="sigil-card">
+              <div class="sigil-symbol">ए</div>
+              <div class="sigil-name">अधिकरण (Adhikarana)</div>
+              <div class="sigil-desc">Locus (In / At environment)</div>
+            </div>
+          </div>
+
+          <p>
+            <strong>Free Operand Ordering:</strong> Because the role is bound to the token via its kāraka sigil, <code>योगः कम् खन गन ।</code> and <code>योगः खन गन कम् ।</code> produce the exact same deterministic binary instruction!
+          </p>
+        </article>
+
+        <!-- Lesson 3 -->
+        <article class="lesson-section" id="lesson-3">
+          <span class="portal-badge">पाठ ३ (Lesson 3)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">The 32 RV64 Registers (३२ कोष्ठकाणि)</h2>
+          <p>
+            All 32 general-purpose 64-bit integer registers have authentic Sanskrit names mapped directly to the standard RISC-V ABI:
+          </p>
+          <ul>
+            <li><code>शून्यः</code> (zero / x0) — Hardwired zero</li>
+            <li><code>पुनःस्थानम्</code> (ra / x1) — Return address for functions</li>
+            <li><code>स्तूपसूचकः</code> (sp / x2) — Stack pointer</li>
+            <li><code>विश्वसूचकः</code> (gp / x3) &bull; <code>तन्तुसूचकः</code> (tp / x4) — Global & Thread pointers</li>
+            <li><code>क्षणिक०..क्षणिक६</code> (t0–t6) — 7 Temporary registers</li>
+            <li><code>अर्थ०..अर्थ७</code> (a0–a7) — 8 Function argument / return value registers</li>
+            <li><code>स्थिर०..स्थिर११</code> (s0–s11) — 12 Callee-saved preserved registers</li>
+          </ul>
+        </article>
+
+        <!-- Lesson 4 -->
+        <article class="lesson-section" id="lesson-4">
+          <span class="portal-badge">पाठ ४ (Lesson 4)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Sanskrit Numerals (सङ्ख्याः)</h2>
+          <p>
+            Sassembly provides explicit radix prefixes with Devanagari numerals:
+          </p>
+          <ul>
+            <li><strong>Hexadecimal (०षोड्):</strong> <code>०षोड्१००००</code> (0x10000). Hex digits 10–15 are represented by Sanskrit vowels: <code>अ</code> (10), <code>आ</code> (11), <code>इ</code> (12), <code>ई</code> (13), <code>उ</code> (14), <code>ऊ</code> (15). Example: <code>०षोड्५५५</code>.</li>
+            <li><strong>Binary (०द्वि):</strong> <code>०द्वि१०११०</code> (0b10110).</li>
+            <li><strong>Octal (०अष्ट):</strong> <code>०अष्ट७७</code> (0o77).</li>
+            <li><strong>Decimal:</strong> <code>१२३</code> (123).</li>
+          </ul>
+        </article>
+
+        <!-- Lesson 5 -->
+        <article class="lesson-section" id="lesson-5">
+          <span class="portal-badge">पाठ ५ (Lesson 5)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Directives & Sections (निर्देशाः)</h2>
+          <p>
+            Directives give instructions to the assembler (<code>साधनम्</code>) and are wrapped in double daṇḍas (<code>॥ ... ॥</code>):
+          </p>
+          <div class="dev-code-block">
+            <pre class="dev-code-content"><code>॥ कोष्ठकम् ॱपाठ ॥            ॰ Switch to code section (.text)
+॥ कोष्ठकम् ॱदत्त ॥            ॰ Switch to data section (.data)
+॥ अष्टकाः उक्तम् नमस्ते इति ॥ ॰ Emit UTF-8 string bytes
+॥ स्थानम् ८ ॥                 ॰ Allocate 8 zero bytes
+॥ संरेखः ४ ॥                  ॰ 4-byte address alignment</code></pre>
+          </div>
+        </article>
+
+        <!-- ================= TIER 2 ================= -->
+        <div style="margin: 4rem 0 2rem;">
+          <span class="portal-badge" style="background: rgba(0, 240, 255, 0.15); color: var(--dev-cyan); border-color: rgba(0, 240, 255, 0.3);">
+            TIER 2 · मध्यम स्तर (INTERMEDIATE SYSTEM PROGRAMMING)
+          </span>
+        </div>
+
+        <!-- Lesson 6 -->
+        <article class="lesson-section" id="lesson-6">
+          <span class="portal-badge">पाठ ६ (Lesson 6)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Arithmetic, Logic & Bitwise Shifts</h2>
+          <p>
+            Sassembly provides 49 mnemonic families covering all RV64GC operations:
+          </p>
+          <ul>
+            <li><code>वियोगः</code> (SUB) &bull; <code>गुणनम्</code> (MUL) &bull; <code>भागः</code> (DIV) &bull; <code>शेषः</code> (REM)</li>
+            <li><code>युक्तम्</code> (AND) &bull; <code>विकल्पः</code> (OR) &bull; <code>वैषम्यम्</code> (XOR) &bull; <code>व्यत्ययः</code> (NOT)</li>
+            <li><code>वामसरणम्</code> (SLL - Shift Left) &bull; <code>दक्षिणसरणम्</code> (SRL - Shift Right Logical) &bull; <code>सचिह्नदक्षिणसरणम्</code> (SRA - Shift Right Arithmetic)</li>
+          </ul>
+        </article>
+
+        <!-- Lesson 7 -->
+        <article class="lesson-section" id="lesson-7">
+          <span class="portal-badge">पाठ ७ (Lesson 7)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Memory Hierarchy & Sizing Extents (व्याप्ति)</h2>
+          <p>
+            Sizing suffixes (<em>Vyāpti</em>) determine the bit width of instructions:
+          </p>
+          <ul>
+            <li><code>ॱअ८</code> — 8-bit Byte</li>
+            <li><code>ॱअ१६</code> — 16-bit Halfword</li>
+            <li><code>ॱअ३२</code> — 32-bit Word</li>
+            <li><code>ॱअ६४</code> — 64-bit Quadword (Default if omitted)</li>
+          </ul>
+          <div class="dev-code-block">
+            <pre class="dev-code-content"><code>आहारःॱअ८ क्षणिक०म् क्षणिक१त् ०न ।  ॰ Load 8-bit byte from [t1 + 0] into t0
+निधानम्ॱअ३२ क्षणिक१य् ०न क्षणिक०न । ॰ Store 32-bit word from t0 to [t1 + 0]</code></pre>
+          </div>
+        </article>
+
+        <!-- Lesson 8 -->
+        <article class="lesson-section" id="lesson-8">
+          <span class="portal-badge">पाठ ८ (Lesson 8)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Control Flow, Branches & Loops (नियन्त्रण-प्रवाहः)</h2>
+          <p>
+            Conditional branches compare two values and jump to a label (marked by <code>नामपदम्ॱॱ</code>):
+          </p>
+          <ul>
+            <li><code>समलङ्घनम्</code> (BEQ - Branch if Equal)</li>
+            <li><code>विषमलङ्घनम्</code> (BNE - Branch if Not Equal)</li>
+            <li><code>न्यूनलङ्घनम्</code> (BLT - Branch if Less Than)</li>
+            <li><code>अन्यूनलङ्घनम्</code> (BGE - Branch if Greater or Equal)</li>
+            <li><code>लङ्घनम्</code> (JAL - Jump and Link)</li>
+          </ul>
+        </article>
+
+        <!-- Lesson 9 -->
+        <article class="lesson-section" id="lesson-9">
+          <span class="portal-badge">पाठ ९ (Lesson 9)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Akṣara Normalisation & Orthographic Closure</h2>
+          <p>
+            In Sassembly, <strong>the atom of text is the Akṣara cluster</strong>, not individual byte code points. <code>क्ष</code> is treated as a single cluster. This eliminates homoglyph attacks and bidirectional unicode overrides structurally at the compiler level. Zero foreign ASCII characters may appear in Sassembly source.
+          </p>
+        </article>
+
+        <!-- Lesson 10 -->
+        <article class="lesson-section" id="lesson-10">
+          <span class="portal-badge">पाठ १० (Lesson 10)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Calling Conventions & Stack Frame Management</h2>
+          <p>
+            Function arguments are passed in <code>अर्थ०..अर्थ७</code>. Before calling a nested function, the caller must preserve the return address (<code>पुनःस्थानम्</code>) on the stack using <code>स्तूपसूचकः</code> (sp):
+          </p>
+          <div class="dev-code-block">
+            <pre class="dev-code-content"><code>॰ Prologue: Allocate 16 bytes on stack
+वियोगः स्तूपसूचकःम् स्तूपसूचकःन १६न ।
+निधानम्ॱअ६४ स्तूपसूचकःय् ८न पुनःस्थानम्न ।
+
+॰ Call Subroutine
+लङ्घनम् पुनःस्थानम्म् उपकार्यम्य् ।
+
+॰ Epilogue: Restore Return Address and deallocate stack
+आहारःॱअ६४ पुनःस्थानम्म् स्तूपसूचकःत् ८न ।
+योगः स्तूपसूचकःम् स्तूपसूचकःन १६न ।
+सापेक्षलङ्घनम् शून्यःम् पुनःस्थानम्त् ०न । ॰ RET</code></pre>
+          </div>
+        </article>
+
+        <!-- ================= TIER 3 ================= -->
+        <div style="margin: 4rem 0 2rem;">
+          <span class="portal-badge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border-color: rgba(168, 85, 247, 0.3);">
+            TIER 3 · प्रौढ स्तर (ADVANCED KERNEL & ARCHITECTURE)
+          </span>
+        </div>
+
+        <!-- Lesson 11 -->
+        <article class="lesson-section" id="lesson-11">
+          <span class="portal-badge">पाठ ११ (Lesson 11)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Boot Proofs vs Isolated U-Mode Applications</h2>
+          <p>
+            SanOS enforces a strict architectural boundary between two program classes:
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+            <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,215,0,0.2);">
+              <h4 style="color: var(--dev-gold); margin-top: 0;">धातु-प्रमाणम् (Boot Proofs)</h4>
+              <p style="font-size: 0.85rem; color: var(--dev-text-muted);">Bare-metal machine/supervisor mode. Boots at <code>0x80000000</code>. Directly owns the UART memory-mapped device at <code>0x10000000</code>.</p>
+            </div>
+            <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px; border: 1px solid rgba(0,240,255,0.2);">
+              <h4 style="color: var(--dev-cyan); margin-top: 0;">अतिथि-अनुप्रयोगः (Guest Apps)</h4>
+              <p style="font-size: 0.85rem; color: var(--dev-text-muted);">U-mode isolated. Placed at <code>0x20000000</code>. Cannot access hardware devices; communicates via <code>आज्ञापनम्</code> (ecall) to a granted supervisor surface.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Lesson 12 -->
+        <article class="lesson-section" id="lesson-12">
+          <span class="portal-badge">पाठ १२ (Lesson 12)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Atomic Operations & Multiprocessing (परमाणवः)</h2>
+          <p>
+            Native atomic primitives in Sassembly guarantee lock-free synchronization across CPU cores:
+          </p>
+          <ul>
+            <li><code>परमाणुपठनम्</code> (LR - Load Reserved)</li>
+            <li><code>परमाणुलेखनम्</code> (SC - Store Conditional)</li>
+            <li><code>परमाणुविनिमयः</code> (AMOSWAP - Atomic Swap)</li>
+            <li><code>परमाणुयोगः</code> (AMOADD - Atomic Add)</li>
+          </ul>
+        </article>
+
+        <!-- Lesson 13 -->
+        <article class="lesson-section" id="lesson-13">
+          <span class="portal-badge">पाठ १३ (Lesson 13)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">64-bit Floating Point Architecture (भिन्न-सङ्ख्याः)</h2>
+          <p>
+            Floating point operations utilize 32 dedicated registers (<code>भिन्न०..भिन्न३१</code>):
+          </p>
+          <ul>
+            <li><code>भिन्नाहारः</code> (FLW/FLD) &bull; <code>भिन्ननिधानम्</code> (FSW/FSD)</li>
+            <li><code>भिन्नयोगः</code> (FADD) &bull; <code>भिन्नगुणनम्</code> (FMUL) &bull; <code>वर्गमूलम्</code> (FSQRT)</li>
+          </ul>
+        </article>
+
+        <!-- Lesson 14 -->
+        <article class="lesson-section" id="lesson-14">
+          <span class="portal-badge">पाठ १४ (Lesson 14)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">The 3 Core System Elements (त्रि-व्यवस्था-तत्त्वानि)</h2>
+          <p>
+            All higher-level applications in SanOS are constructed from 3 core elements:
+          </p>
+          <ol>
+            <li><strong>E1 · द्वारपालः (Dvarapala):</strong> Smart PTY and Sanskrit Devnagari terminal subsystem.</li>
+            <li><strong>E2 · चित्रम् (Chitra):</strong> Hardware-portable 2D/3D graphics rasterizer and compositor (Mandapa).</li>
+            <li><strong>E3 · जालम् (Jala):</strong> Sanskrit TCP/IP, UDP, and network driver stack.</li>
+          </ol>
+        </article>
+
+        <!-- Lesson 15 -->
+        <article class="lesson-section" id="lesson-15">
+          <span class="portal-badge">पाठ १५ (Lesson 15)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">SanOS Native Applications (मूल-अनुप्रयोगाः)</h2>
+          <p>
+            The 4 fundamental native applications built on the 3 core elements:
+          </p>
+          <ul>
+            <li><strong>N1 · साधनम् (Sadhana):</strong> Sassembly compiler, linker (Kosha), and builder toolchain.</li>
+            <li><strong>N2 · भाण्डारम् (Bhandara):</strong> Sanskrit visual filesystem browser & explorer.</li>
+            <li><strong>N3 · गवाक्षः (Gavaksha):</strong> Web browser rendering classical HTML/JS and Sassembly-web (Vastu).</li>
+            <li><strong>N4 · नादः & रूपम् (Nada/Rupa):</strong> Multimedia A/V playback engine and codec suite.</li>
+          </ul>
+        </article>
+
+        <!-- Lesson 16 -->
+        <article class="lesson-section" id="lesson-16">
+          <span class="portal-badge">पाठ १६ (Lesson 16)</span>
+          <h2 style="font-family: var(--font-heading); color: #fff; margin: 0.5rem 0 1rem;">Zero-Mass Computing & Verification</h2>
+          <p>
+            The fundamental philosophy of Sanskrit computing is <strong>unloading the bloat</strong>:
+          </p>
+          <ul>
+            <li><strong>64 KiB Kernel</strong> (vs 100 MB Linux)</li>
+            <li><strong>4 KiB Hello World Binary</strong> (vs 300 KB Rust)</li>
+            <li><strong>&le; 2x Build Mass Ratio</strong> (vs 1000x Cargo)</li>
+            <li><strong>Zero 3rd-Party Runtime Dependencies</strong> in core execution path.</li>
+          </ul>
+          <div style="margin-top: 1.5rem; text-align: center;">
+            <a href="playground.html" class="btn-dev btn-dev-primary" style="padding: 0.8rem 1.8rem;">
+              ⚡ Launch Playground & Write Sassembly Code
+            </a>
+          </div>
+        </article>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 3rem 1rem; color: var(--dev-text-dim); border-top: 1px solid var(--dev-border); margin-top: 4rem;">
+    <p>॥ ॐ तत् सत् ॥ &bull; ParamTatva.org &bull; Sassembly Language Learning Academy</p>
+  </footer>
+
+  <script>
+    function checkQuiz(btn, isCorrect, msg) {
+      const parent = btn.closest('.quiz-box');
+      const feedback = parent.querySelector('.quiz-feedback');
+      feedback.textContent = msg;
+      feedback.style.display = 'block';
+      feedback.style.color = isCorrect ? '#10b981' : '#f87171';
+    }
+
+    // Highlight sidebar item on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.lesson-section');
+      const navLinks = document.querySelectorAll('.learn-nav-item');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(sec => {
+          const top = sec.offsetTop - 120;
+          if (window.pageYOffset >= top) {
+            current = sec.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

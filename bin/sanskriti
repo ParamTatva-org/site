@@ -1,0 +1,63 @@
+#!/usr/bin/env node
+/**
+ * संस्कृतिः (Sanskriti) CLI — Tokenless Sassembly Software Builder
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+// Load Sanskriti Builder Engine
+const builderPath = path.resolve(__dirname, '..', 'js', 'builder-engine.js');
+if (fs.existsSync(builderPath)) {
+  const code = fs.readFileSync(builderPath, 'utf8');
+  const fn = new Function('global', code);
+  fn(global);
+}
+
+const args = process.argv.slice(2);
+
+if (args.length < 1 || args.includes('--help') || args.includes('-h')) {
+  console.log(`\x1b[33mसंस्कृतिः (Sanskriti) — Tokenless Sassembly Software Builder\x1b[0m
+उपयोगः: sanskriti build "<requirements prompt>" [-o out.sas]
+        sanskriti list-blueprints
+        sanskriti new <blueprint-id> [out.sas]
+
+विकल्पाः:
+  build "<prompt>"      Synthesize Sassembly program from natural language requirements
+  new <blueprint-id>    Generate Sassembly program from architectural template
+  list-blueprints       List all embedded system blueprints
+  -o <path>             Output file path (default: stdout)`);
+  process.exit(0);
+}
+
+if (args.includes('list-blueprints')) {
+  console.log('\x1b[36mसंस्कृतिः Architectural Blueprints:\x1b[0m');
+  if (global.SanskritiBuilder && global.SanskritiBuilder.BLUEPRINTS) {
+    for (const [key, bp] of Object.entries(global.SanskritiBuilder.BLUEPRINTS)) {
+      console.log(`  \x1b[33m${key.padEnd(16)}\x1b[0m [${bp.tier}] ${bp.name} - ${bp.desc}`);
+    }
+  }
+  process.exit(0);
+}
+
+let prompt = args[0] === 'build' ? args[1] : args[0];
+let outFile = args.includes('-o') ? args[args.indexOf('-o') + 1] : null;
+
+if (!prompt) {
+  console.error('\x1b[31mदोषः: Please specify a requirements prompt (e.g. sanskriti build "UART Hello World")\x1b[0m');
+  process.exit(1);
+}
+
+console.log(`\x1b[36m[संस्कृतिः]\x1b[0m सस्सेम्बली-रचना क्रियते: "${prompt}"`);
+
+if (global.SanskritiBuilder && global.SanskritiBuilder.synthesizeFromPrompt) {
+  const result = global.SanskritiBuilder.synthesizeFromPrompt(prompt);
+  console.log(`\x1b[32m[संस्कृतिः] ✓ Architecture Synthesized: ${result.blueprint.name}\x1b[0m\n`);
+  
+  if (outFile) {
+    fs.writeFileSync(outFile, result.code, 'utf8');
+    console.log(`\x1b[32m[संस्कृतिः] ✓ पत्रम् लिखितम्: ${outFile}\x1b[0m`);
+  } else {
+    console.log(result.code);
+  }
+}
