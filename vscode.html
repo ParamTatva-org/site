@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanskriti VS Code Extension | ParamTatva</title>
+  <meta name="description" content="Download the official VS Code extension for Sanskriti and Sassembly." />
+  <meta name="theme-color" content="#0a0e27" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/developer.css" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="nav-main" style="background: rgba(10, 14, 39, 0.9);">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-sanskrit">परमतत्त्व</span>
+        <span class="logo-english">ParamTatva</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="learn.html">Academy 📚</a></li>
+        <li><a href="builder.html">Builder ✨</a></li>
+        <li><a href="playground.html">Playground ⚡</a></li>
+        <li><a href="reference.html">ISA Ref</a></li>
+        <li><a href="install.html" class="nav-cta">Install 📦</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="dev-container">
+    <div class="dev-header">
+      <div class="dev-hero-badge">॥ संस्कृतिः • विकास-साधनम् ॥</div>
+      <h1 class="dev-title">VS Code Extension</h1>
+      <p class="dev-subtitle">Native IDE integration for Sassembly & Sanskriti Toolchain</p>
+    </div>
+
+    <div class="dev-content-grid">
+      <div class="dev-main-content">
+        <section class="dev-section">
+          <h2>Overview</h2>
+          <p>
+            The official Sanskriti VS Code extension bridges the gap between traditional text editors and our tokenless Sanskriti software builder. It brings rich syntax highlighting for Sassembly (`.sas`), built-in command palette actions, and 1-click toolchain installation directly into your IDE.
+          </p>
+
+          <div style="margin-top: 2rem; padding: 2rem; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 12px; text-align: center;">
+            <h3 style="margin-top: 0; color: #fff;">Download Extension</h3>
+            <p style="color: var(--dev-text-muted); margin-bottom: 1.5rem;">Requires Visual Studio Code version 1.80.0 or higher.</p>
+            <a href="vscode-extension/sanskriti-1.0.0.vsix" class="btn-dev btn-dev-primary" download style="display: inline-block; padding: 1rem 2.5rem; font-size: 1.2rem;">
+              ⬇️ Download sanskriti-1.0.0.vsix
+            </a>
+            <p style="font-size: 0.85rem; color: #64748b; margin-top: 1rem;">
+              To install: Open VS Code -> Extensions -> "..." (Views and More Actions) -> "Install from VSIX..."
+            </p>
+          </div>
+        </section>
+
+        <section class="dev-section">
+          <h2>Features</h2>
+          
+          <div class="dev-card" style="margin-bottom: 1.5rem;">
+            <h3>🎨 Sassembly Syntax Highlighting</h3>
+            <p>Full TextMate grammar support for <code>.sas</code> files. Highlights structural Sanskrit keywords (आगच्छ, गच्छ, ददाति), Pāṇinian kārakas (म्, न, त्, य्, ए), hardware registers (कर्तृ, कर्म, etc.), and assembler directives.</p>
+          </div>
+
+          <div class="dev-card" style="margin-bottom: 1.5rem;">
+            <h3>⚡ Integrated Command Palette</h3>
+            <ul style="color: var(--dev-text-main); margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+              <li><strong>Sanskriti: Install Toolchain:</strong> Installs the required <code>sadhana</code>, <code>yantra</code>, and <code>sanskriti</code> binaries to your system automatically.</li>
+              <li><strong>Sanskriti: Build File:</strong> Invokes the Sanskriti synthesis engine on your active specification file.</li>
+              <li><strong>Sassembly: Run in Yantra:</strong> Compiles the current <code>.sas</code> file and runs it in the built-in VS Code terminal.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <div class="dev-sidebar">
+        <div class="dev-card" style="position: sticky; top: 100px;">
+          <h3 style="font-size: 1.2rem; margin-top: 0;">Installation Steps</h3>
+          <ol style="color: var(--dev-text-main); font-size: 0.95rem; padding-left: 1.2rem; line-height: 1.8;">
+            <li>Download the <code>.vsix</code> file.</li>
+            <li>Open VS Code.</li>
+            <li>Press <code>Cmd+Shift+P</code> (Mac) or <code>Ctrl+Shift+P</code> (Windows/Linux).</li>
+            <li>Type <strong>"Extensions: Install from VSIX..."</strong> and select it.</li>
+            <li>Select the downloaded <code>sanskriti-1.0.0.vsix</code> file.</li>
+            <li>Open any <code>.sas</code> file to verify!</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-main" style="margin-top: 4rem;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; 2026 ParamTatva.org &bull; All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/playground.js"></script>
+</body>
+</html>
