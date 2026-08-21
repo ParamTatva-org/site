@@ -742,3 +742,99 @@
     flex-direction: column;
   }
 }
+
+/* ==========================================================================
+   Build Steps (How It Works Banner)
+   ========================================================================== */
+.build-steps-section {
+  padding: 5rem 0 6rem;
+  background: linear-gradient(180deg, rgba(6, 9, 25, 0.95) 0%, rgba(12, 18, 50, 0.85) 100%);
+  border-top: 1px solid var(--dev-border);
+  border-bottom: 1px solid var(--dev-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.build-steps-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 5rem;
+  position: relative;
+}
+
+.build-steps-container::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(0,240,255,0.1), rgba(0,240,255,0.6), rgba(0,240,255,0.1));
+  z-index: 0;
+  box-shadow: 0 0 10px rgba(0,240,255,0.4);
+}
+
+.build-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: var(--dev-surface-card);
+  padding: 2.5rem 1.5rem 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.build-step:hover {
+  transform: translateY(-5px);
+  border-color: var(--dev-cyan);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+.build-step-number {
+  width: 80px;
+  height: 80px;
+  background: var(--dev-bg);
+  border: 2px solid var(--dev-cyan);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -4.5rem auto 1.5rem;
+  font-family: var(--font-sanskrit);
+  font-size: 2.5rem;
+  color: var(--dev-gold);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2), inset 0 0 15px rgba(0, 240, 255, 0.1);
+}
+
+.build-step h3 {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.build-step p {
+  color: var(--dev-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .build-steps-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+  }
+  .build-steps-container::before {
+    display: none;
+  }
+  .build-step {
+    width: 100%;
+    max-width: 400px;
+  }
+}
