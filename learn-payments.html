@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="sa">
+<head>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tier 4: Web Apps & Payment APIs | ParamTatva.org</title>
+  <meta name="description" content="Learn how to integrate Sanskriti apps with third-party payment gateways like Stripe and PayPal." />
+  <meta name="theme-color" content="#050714" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/developer.css" />
+  <style>
+    .learn-layout { display: grid; grid-template-columns: 280px 1fr; gap: 2rem; margin-top: 2rem; }
+    @media (max-width: 900px) { .learn-layout { grid-template-columns: 1fr; } .learn-sidebar { display: none; } }
+    .learn-sidebar { position: sticky; top: 90px; height: calc(100vh - 120px); overflow-y: auto; background: var(--dev-surface); border: 1px solid var(--dev-border); border-radius: 12px; padding: 1.25rem; }
+    .learn-sidebar-tier { margin-bottom: 1.5rem; }
+    .learn-sidebar-title { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dev-gold); font-weight: 700; margin-bottom: 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+    .learn-nav-item { display: block; padding: 0.4rem 0.6rem; font-size: 0.85rem; color: var(--dev-text-muted); text-decoration: none; border-radius: 6px; margin-bottom: 0.2rem; transition: all 0.15s ease; }
+    .learn-nav-item:hover, .learn-nav-item.active { color: var(--dev-text-main); background: rgba(0, 240, 255, 0.12); border-left: 3px solid var(--dev-cyan); }
+    .lesson-section { background: var(--dev-surface); border: 1px solid var(--dev-border); border-radius: 16px; padding: 2.5rem; margin-bottom: 3rem; scroll-margin-top: 100px; }
+    .db-arch-diagram { background: var(--dev-surface-elevated); border: 1px solid var(--dev-border); padding: 2rem; border-radius: 12px; margin: 2rem 0; text-align: center; font-family: var(--font-mono); color: var(--dev-text-main); line-height: 1.8; }
+  </style>
+</head>
+<body class="dev-body">
+  <div class="dev-cosmic-bg"><div class="dev-grid-overlay"></div></div>
+
+  <nav class="dev-navbar">
+    <a href="index.html" class="dev-nav-brand">
+      <span class="sanskrit-mark">परमतत्त्व</span>
+      <span class="portal-badge">Learning Academy</span>
+    </a>
+    <ul class="dev-nav-links">
+      <li><button id="theme-toggle" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--dev-text-main);">🌓</button></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="developer.html">Developer Hub</a></li>
+      <li><a href="learn.html" class="active">Learning Academy 📚</a></li>
+      <li><a href="builder.html">Sanskriti Builder ✨</a></li>
+      <li><a href="playground.html">Playground ⚡</a></li>
+    </ul>
+  </nav>
+
+  <div class="dev-container">
+    <div class="dev-hero" style="padding: 2.5rem 1rem 1.5rem;">
+      <span class="dev-hero-badge">॥ प्रायोगिक-कार्याणि ॥</span>
+      <h1 style="font-size: 2.6rem; margin-bottom: 0.5rem;">Web Apps & Payment Integrations</h1>
+      <p class="subtitle" style="font-size: 1.1rem; margin-bottom: 1rem;">
+        Integrate utility web applications with secure external APIs like Stripe and PayPal.
+      </p>
+    </div>
+
+    <div class="learn-layout">
+      <aside class="learn-sidebar">
+        <div class="learn-sidebar-tier">
+          <div class="learn-sidebar-title">Tier 4 · प्रायोगिक-कार्याणि (Practical)</div>
+          <a href="learn-db.html" class="learn-nav-item">१७. High-Grade Databases</a>
+          <a href="learn-server.html" class="learn-nav-item">१८. Server Engines (Nginx-like)</a>
+          <a href="learn-payments.html" class="learn-nav-item active">१९. Web Apps & Payments API</a>
+        </div>
+        <div style="margin-top: 2rem;">
+          <a href="learn.html" style="color: var(--dev-gold); text-decoration: none; font-size: 0.9rem;">&larr; Back to Academy Core</a>
+        </div>
+      </aside>
+
+      <main class="learn-content">
+        <div style="margin-bottom: 2rem;">
+          <span class="portal-badge" style="background: rgba(255, 215, 0, 0.15); color: var(--dev-gold); border-color: rgba(255, 215, 0, 0.3);">
+            TIER 4 · PRACTICAL ENGINEERING
+          </span>
+        </div>
+
+        <article class="lesson-section" id="theory">
+          <span class="portal-badge">सिद्धांत (Theory & Architecture)</span>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Secure API Bridging in SanOS</h2>
+          <p style="color: var(--dev-text-muted); line-height: 1.8;">
+            Interacting with external entities (like Stripe or PayPal) requires cryptographic security (TLS/SSL) and structured data interchange (JSON). In Sassembly, external calls traverse the <strong>Seema (सीमा - Boundary) Bridge</strong>, ensuring memory isolation between the SanOS core and the external internet.
+          </p>
+          <p style="color: var(--dev-text-muted); line-height: 1.8;">
+            By utilizing native HTTP/TLS clients and JSON unmarshalling structures, you can establish secure checkout sessions directly within your Sanskrit codebase.
+          </p>
+
+          <div class="db-arch-diagram">
+            [ Sassembly Web App ] &rarr; (JSON Payload)<br/>
+            &darr;<br/>
+            [ Seema Boundary / TLS Bridge ]<br/>
+            &darr;<br/>
+            [ Stripe / PayPal API ] &rarr; (Session ID)
+          </div>
+        </article>
+
+        <article class="lesson-section" id="specs">
+          <span class="portal-badge">प्रारूप (Specifications)</span>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Payment Integration Requirements</h2>
+
+          <div class="dev-card" style="padding: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--dev-cyan); background: var(--dev-surface-elevated);">
+            <h4 style="margin-top: 0; color: var(--dev-text-main);">English Specification</h4>
+            <p style="font-style: italic; color: var(--dev-text-muted);">
+              "Create a secure REST endpoint '/checkout'. When hit, construct a JSON payload with a price ID and quantity, send a secure POST request to the Stripe API, parse the resulting checkout session URL, and redirect the user."
+            </p>
+          </div>
+
+          <div class="dev-card" style="padding: 1.5rem; border-left: 4px solid var(--dev-gold); background: var(--dev-surface-elevated);">
+            <h4 style="margin-top: 0; color: var(--dev-text-main);">Sanskrit Counterpart (Sanskriti Input)</h4>
+            <div class="dev-code-block" style="margin-top: 1rem;">
+              <pre class="dev-code-content" style="color: var(--dev-text-main);"><code>॰ ParamPayments - Stripe Checkout Integration
+'/checkout' इति मार्गे सुरक्षित-अन्त्यबिन्दुं (REST Endpoint) सृज ।
+तत्र, 'मूल्य-परिचय' (Price ID) तथा 'मात्रा' (Quantity) इति JSON-स्वरूपे रचय ।
+तत् सन्देशं Stripe-सेवायां (Stripe API) POST-माध्यमेन प्रेषय ।
+आगतं प्रति-सङ्केतम् (Session URL) पठित्वा, उपयोक्तारं तत्र नय (Redirect) ।</code></pre>
+            </div>
+          </div>
+        </article>
+
+        <article class="lesson-section" id="tutorial">
+          <span class="portal-badge">प्रक्रिया (CLI Tutorial)</span>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Compiling the Web App Integration</h2>
+          
+          <ol style="color: var(--dev-text-muted); line-height: 1.8; margin-top: 1.5rem;">
+            <li>
+              <strong style="color: var(--dev-text-main);">Build the Endpoint:</strong>
+              <div class="dev-code-block" style="margin: 0.5rem 0 1rem;">
+                <pre class="dev-code-content" style="color: var(--dev-text-main);"><code>$ sanskriti build payment.सस --include-tls
+[संस्कृति] Linking Seema Boundary...
+[संस्कृति] Generating JSON Encoders...
+[संस्कृति] Successfully built: payment_service.exe</code></pre>
+              </div>
+            </li>
+            <li>
+              <strong style="color: var(--dev-text-main);">Export Secret Keys as Environment Variables:</strong>
+              <div class="dev-code-block" style="margin: 0.5rem 0 1rem;">
+                <pre class="dev-code-content" style="color: var(--dev-text-main);"><code>$ export STRIPE_SECRET=sk_test_12345
+$ ./payment_service.exe
+[ParamPayments] Secure endpoint active on /checkout</code></pre>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+      </main>
+    </div>
+  </div>
+
+  <footer class="footer" style="border-top: 1px solid var(--dev-border); padding: 3rem 0; margin-top: 4rem;">
+    <div class="dev-container">
+      <div style="text-align: center; color: var(--dev-text-muted);">
+        <p style="font-family: var(--font-sanskrit); font-size: 1.2rem; color: var(--dev-gold); margin-bottom: 0.5rem;">॥ ॐ नमः शिवाय ॥</p>
+        <p>&copy; 2026 ParamTatva System. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="sa">
+<head>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 11: Boot Proofs vs U-Mode | ParamTatva.org</title>
+  <meta name="description" content="Learn Boot Proofs vs U-Mode in the Sanskriti Learning Academy." />
+  <meta name="theme-color" content="#050714" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/developer.css" />
+  <style>
+    .learn-layout { display: grid; grid-template-columns: 280px 1fr; gap: 2rem; margin-top: 2rem; }
+    @media (max-width: 900px) { .learn-layout { grid-template-columns: 1fr; } .learn-sidebar { display: none; } }
+    .learn-sidebar { position: sticky; top: 90px; height: calc(100vh - 120px); overflow-y: auto; background: var(--dev-surface); border: 1px solid var(--dev-border); border-radius: 12px; padding: 1.25rem; }
+    .learn-sidebar-tier { margin-bottom: 1.5rem; }
+    .learn-sidebar-title { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dev-gold); font-weight: 700; margin-bottom: 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+    .learn-nav-item { display: block; padding: 0.4rem 0.6rem; font-size: 0.85rem; color: var(--dev-text-muted); text-decoration: none; border-radius: 6px; margin-bottom: 0.2rem; transition: all 0.15s ease; }
+    .learn-nav-item:hover, .learn-nav-item.active { color: var(--dev-text-main); background: rgba(0, 240, 255, 0.12); border-left: 3px solid var(--dev-cyan); }
+    .lesson-section { background: var(--dev-surface); border: 1px solid var(--dev-border); border-radius: 16px; padding: 2.5rem; margin-bottom: 3rem; }
+  </style>
+</head>
+<body class="dev-body">
+  <div class="dev-cosmic-bg"><div class="dev-grid-overlay"></div></div>
+  <nav class="dev-navbar">
+    <a href="index.html" class="dev-nav-brand">
+      <span class="sanskrit-mark">परमतत्त्व</span>
+      <span class="portal-badge">Learning Academy</span>
+    </a>
+    <ul class="dev-nav-links">
+      <li><button id="theme-toggle" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--dev-text-main);">🌓</button></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="developer.html">Developer Hub</a></li>
+      <li><a href="learn.html" class="active">Learning Academy 📚</a></li>
+      <li><a href="builder.html">Sanskriti Builder ✨</a></li>
+      <li><a href="playground.html">Playground ⚡</a></li>
+    </ul>
+  </nav>
+
+  <div class="dev-container">
+    <div class="dev-hero" style="padding: 2.5rem 1rem 1.5rem;">
+      <span class="dev-hero-badge">॥ पाठ 11 ॥</span>
+      <h1 style="font-size: 2.6rem; margin-bottom: 0.5rem;">Boot Proofs vs U-Mode</h1>
+      <p class="subtitle" style="font-size: 1.1rem; margin-bottom: 1rem;">
+        Advanced Curriculum
+      </p>
+    </div>
+
+    <div class="learn-layout">
+      <aside class="learn-sidebar">
+        <div class="learn-sidebar-tier">
+          <div class="learn-sidebar-title">Tier 1 · प्रारम्भिक स्तर (Basic)</div>
+          <a href="learn-lesson-1.html" class="learn-nav-item ">१. The Sanskrit Sentence</a>
+          <a href="learn-lesson-2.html" class="learn-nav-item ">२. The 5 Kāraka Sigils</a>
+          <a href="learn-lesson-3.html" class="learn-nav-item ">३. The 32 RV64 Registers</a>
+          <a href="learn-lesson-4.html" class="learn-nav-item ">४. Sanskrit Numerals</a>
+          <a href="learn-lesson-5.html" class="learn-nav-item ">५. Directives & Sections</a>
+        </div>
+        <div class="learn-sidebar-tier">
+          <div class="learn-sidebar-title">Tier 2 · मध्यम स्तर (Intermediate)</div>
+          <a href="learn-lesson-6.html" class="learn-nav-item ">६. Arithmetic & Logic</a>
+          <a href="learn-lesson-7.html" class="learn-nav-item ">७. Memory & Extents (व्याप्ति)</a>
+          <a href="learn-lesson-8.html" class="learn-nav-item ">८. Control Flow & Branches</a>
+          <a href="learn-lesson-9.html" class="learn-nav-item ">९. Akṣara Normalisation</a>
+          <a href="learn-lesson-10.html" class="learn-nav-item ">१०. Calling Conventions</a>
+        </div>
+        <div class="learn-sidebar-tier">
+          <div class="learn-sidebar-title">Tier 3 · प्रौढ स्तर (Advanced)</div>
+          <a href="learn-lesson-11.html" class="learn-nav-item active">११. Boot Proofs vs U-Mode</a>
+          <a href="learn-lesson-12.html" class="learn-nav-item ">१२. Atomic Operations</a>
+          <a href="learn-lesson-13.html" class="learn-nav-item ">१३. 64-bit Floating Point</a>
+          <a href="learn-lesson-14.html" class="learn-nav-item ">१४. 3 Core System Elements</a>
+          <a href="learn-lesson-15.html" class="learn-nav-item ">१५. Native Applications</a>
+          <a href="learn-lesson-16.html" class="learn-nav-item ">१६. Zero-Mass Computing</a>
+        </div>
+        <div class="learn-sidebar-tier">
+          <div class="learn-sidebar-title">Tier 4 · प्रायोगिक-कार्याणि (Practical)</div>
+          <a href="learn-db.html" class="learn-nav-item">१७. High-Grade Databases</a>
+          <a href="learn-server.html" class="learn-nav-item">१८. Server Engines</a>
+          <a href="learn-payments.html" class="learn-nav-item">१९. Web Apps & Payments API</a>
+        </div>
+        <div style="margin-top: 2rem;">
+          <a href="learn.html" style="color: var(--dev-gold); text-decoration: none; font-size: 0.9rem;">&larr; Back to Academy Core</a>
+        </div>
+      </aside>
+
+      <main class="learn-content">
+        <article class="lesson-section">
+          <span class="portal-badge">सिद्धांत (Theory)</span>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Core Concept</h2>
+          <p style="color: var(--dev-text-muted); line-height: 1.8;">System-level privilege rings and formal verification of the boot process.</p>
+        </article>
+
+        <article class="lesson-section">
+          <span class="portal-badge">अभ्यासः (Tutorials)</span>
+          <h2 style="font-family: var(--font-heading); color: var(--dev-text-main); margin: 0.5rem 0 1rem;">Progressive Examples</h2>
+          
+          <div class="dev-card" style="padding: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid #10b981; background: var(--dev-surface-elevated);">
+            <h4 style="margin-top: 0; color: var(--dev-text-main);">Beginner Example</h4>
+            <p style="color: var(--dev-text-muted);">Understanding User Mode (U-Mode).</p>
+          </div>
+
+          <div class="dev-card" style="padding: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--dev-cyan); background: var(--dev-surface-elevated);">
+            <h4 style="margin-top: 0; color: var(--dev-text-main);">Intermediate Implementation</h4>
+            <p style="color: var(--dev-text-muted);">Transitioning to Machine Mode (M-Mode).</p>
+          </div>
+
+          <div class="dev-card" style="padding: 1.5rem; border-left: 4px solid var(--dev-gold); background: var(--dev-surface-elevated);">
+            <h4 style="margin-top: 0; color: var(--dev-text-main);">Advanced Architectural Pattern</h4>
+            <p style="color: var(--dev-text-muted);">Cryptographic validation of Boot Proofs before execution.</p>
+          </div>
+        </article>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+          <a href="learn-lesson-10.html" class="btn-dev btn-dev-secondary">&larr; Previous Lesson</a>
+          <a href="learn-lesson-12.html" class="btn-dev btn-dev-primary">Next Lesson &rarr;</a>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <footer class="footer" style="border-top: 1px solid var(--dev-border); padding: 3rem 0; margin-top: 4rem;">
+    <div class="dev-container">
+      <div style="text-align: center; color: var(--dev-text-muted);">
+        <p style="font-family: var(--font-sanskrit); font-size: 1.2rem; color: var(--dev-gold); margin-bottom: 0.5rem;">॥ ॐ नमः शिवाय ॥</p>
+        <p>&copy; 2026 ParamTatva System. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
