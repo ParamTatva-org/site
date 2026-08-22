@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="sa">
+<head>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Licensing & Pricing | ParamTatva.org</title>
+  <meta name="description" content="Dual-Licensing model for the Sanskriti Toolchain and SanOS." />
+  <meta name="theme-color" content="#050714" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/developer.css" />
+  
+  <style>
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .pricing-card {
+      background: var(--dev-surface-elevated);
+      border: 1px solid var(--dev-border);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .pricing-card.enterprise {
+      border-color: var(--dev-gold);
+      box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
+    }
+    
+    .pricing-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(212, 175, 55, 0.2);
+      color: var(--dev-gold);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    
+    .pricing-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--dev-text-main);
+      margin-bottom: 0.5rem;
+    }
+    
+    .pricing-price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--dev-cyan);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .pricing-price span {
+      font-size: 1rem;
+      color: var(--dev-text-muted);
+      font-weight: 400;
+      margin-left: 0.5rem;
+    }
+    
+    .pricing-card.enterprise .pricing-price {
+      color: var(--dev-gold);
+    }
+    
+    .pricing-desc {
+      color: var(--dev-text-muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+    
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+      flex-grow: 1;
+    }
+    
+    .pricing-features li {
+      color: var(--dev-text-main);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+    
+    .pricing-features li::before {
+      content: "✓";
+      color: #10b981;
+      font-weight: bold;
+      margin-right: 0.8rem;
+      font-size: 1.1rem;
+    }
+    
+    .pricing-features li.cross::before {
+      content: "×";
+      color: #ef4444;
+    }
+    
+    .faq-section {
+      max-width: 800px;
+      margin: 6rem auto 2rem;
+    }
+    
+    .faq-item {
+      background: var(--dev-surface);
+      border: 1px solid var(--dev-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .faq-item h4 {
+      color: var(--dev-text-main);
+      margin: 0 0 0.5rem 0;
+      font-size: 1.1rem;
+    }
+    
+    .faq-item p {
+      color: var(--dev-text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body class="dev-body">
+  <div class="dev-cosmic-bg"><div class="dev-grid-overlay"></div></div>
+
+  <nav class="dev-navbar">
+    <a href="index.html" class="dev-nav-brand">
+      <span class="sanskrit-mark">परमतत्त्व</span>
+      <span class="portal-badge">Licensing</span>
+    </a>
+    <ul class="dev-nav-links">
+      <li><button id="theme-toggle" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--dev-text-main);">🌓</button></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="developer.html">Developer Hub</a></li>
+      <li><a href="learn.html">Learning Academy 📚</a></li>
+      <li><a href="builder.html">Sanskriti Builder ✨</a></li>
+    </ul>
+  </nav>
+
+  <div class="dev-container">
+    <div class="dev-hero" style="padding: 5rem 1rem 3rem;">
+      <span class="dev-hero-badge">॥ मूल्यं च नियमः ॥</span>
+      <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">Dual Licensing Model</h1>
+      <p class="subtitle" style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+        ParamTatva operates on a dual-license structure. The Sanskriti Toolchain and SanOS are free for open-source development, but require a commercial license for closed-source, proprietary deployments.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Open Source Tier -->
+      <div class="pricing-card">
+        <h2 class="pricing-title">Community</h2>
+        <div class="pricing-price">Free <span>(AGPL-3.0)</span></div>
+        <p class="pricing-desc">
+          For open-source projects, students, and hobbyists. Build and deploy applications for free, provided you share your source code.
+        </p>
+        
+        <ul class="pricing-features">
+          <li>Full access to Sanskriti Compiler & Toolchain</li>
+          <li>Full access to SanOS Core</li>
+          <li>Community Support (GitHub)</li>
+          <li>Can be used for commercial purposes (SaaS, Web Apps)</li>
+          <li class="cross"><strong>Copyleft constraint:</strong> Any application you build (even if only served over a network) MUST be open-sourced under the AGPL-3.0.</li>
+        </ul>
+        
+        <a href="https://github.com/ParamTatva-org/site" target="_blank" rel="noopener" class="btn-dev btn-dev-secondary" style="text-align: center;">View on GitHub</a>
+      </div>
+
+      <!-- Enterprise Tier -->
+      <div class="pricing-card enterprise">
+        <div class="pricing-badge">RECOMMENDED</div>
+        <h2 class="pricing-title">Enterprise</h2>
+        <div class="pricing-price">Custom</div>
+        <p class="pricing-desc">
+          For commercial entities and enterprises that want to build proprietary, closed-source software using the ParamTatva stack.
+        </p>
+        
+        <ul class="pricing-features">
+          <li>Full access to Sanskriti Compiler & Toolchain</li>
+          <li>Full access to SanOS Core</li>
+          <li><strong>No Copyleft constraint:</strong> Keep your entire codebase 100% closed-source and proprietary.</li>
+          <li>Dedicated Slack/Email Support SLA</li>
+          <li>Custom compiler integrations and hardware targets</li>
+        </ul>
+        
+        <a href="mailto:enterprise@paramtatva.org" class="btn-dev btn-dev-primary" style="text-align: center;">Contact Sales</a>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h3 style="font-family: var(--font-heading); color: var(--dev-text-main); font-size: 2rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h3>
+      
+      <div class="faq-item">
+        <h4>Can I use the Community tier for a commercial startup?</h4>
+        <p>Yes, absolutely. However, because we use the <strong>AGPL-3.0</strong> license, if you modify or use our software to serve users over a network (like a SaaS web app), you are legally required to open-source your entire application's source code. If you want to keep your application's source code secret, you must purchase the Enterprise License.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h4>Why AGPL-3.0 instead of MIT or Apache?</h4>
+        <p>ParamTatva represents years of deep R&D into Zero-Mass computing and Sanskrit-native compilation. The AGPL ensures that if a massive corporation uses our tools to build a multi-million dollar service, they must either contribute their improvements back to the community, or pay for a commercial license to fund our continued development.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Does the Enterprise license require royalties?</h4>
+        <p>No. The Enterprise license is typically structured as an annual subscription per developer seat, or a flat buyout depending on your organization's scale. There are no per-user or per-transaction royalties.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" style="border-top: 1px solid var(--dev-border); padding: 3rem 0; margin-top: 4rem;">
+    <div class="dev-container">
+      <div style="text-align: center; color: var(--dev-text-muted);">
+        <p style="margin-bottom: 1rem;">
+          <a href="pricing.html" style="color: var(--dev-gold); text-decoration: none;">Licensing & Pricing</a>
+        </p>
+        <p style="font-family: var(--font-sanskrit); font-size: 1.2rem; color: var(--dev-gold); margin-bottom: 0.5rem;">॥ ॐ नमः शिवाय ॥</p>
+        <p>&copy; 2026 ParamTatva System. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
