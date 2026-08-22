@@ -65,7 +65,8 @@ if (global.Sassembly && global.Sassembly.parseSassembly) {
   }
   console.log(`\x1b[32m[साधनम्] ✓ संकलनम् सम्पन्नम्: ${parsed.instructions.length} वाक्यानि (Instructions), ${parsed.dataBytes.length} अष्टकाः (Data bytes)\x1b[0m`);
   if (outFile) {
-    console.log(`\x1b[32m[साधनम्] ✓ कोशः (ELF64) लिखितम्: ${outFile}\x1b[0m`);
+    console.error(`\x1b[31m[दोषः] Node mock implementation cannot generate ELF binaries. Use the Rust toolchain.\x1b[0m`);
+    process.exit(1);
   }
 } else {
   console.log(`\x1b[32m[साधनम्] ✓ संकलनम् सम्पन्नम्\x1b[0m`);

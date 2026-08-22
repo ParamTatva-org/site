@@ -55,8 +55,8 @@ if (global.SanskritiBuilder && global.SanskritiBuilder.synthesizeFromPrompt) {
   console.log(`\x1b[32m[संस्कृतिः] ✓ Architecture Synthesized: ${result.blueprint.name}\x1b[0m\n`);
   
   if (outFile) {
-    fs.writeFileSync(outFile, result.code, 'utf8');
-    console.log(`\x1b[32m[संस्कृतिः] ✓ पत्रम् लिखितम्: ${outFile}\x1b[0m`);
+    console.error(`\x1b[31m[दोषः] Node mock implementation cannot generate ELF binaries. Use the Rust toolchain.\x1b[0m`);
+    process.exit(1);
   } else {
     console.log(result.code);
   }

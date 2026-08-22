@@ -42,7 +42,7 @@ if (global.Sassembly && global.Sassembly.VM) {
   const vm = new global.Sassembly.VM();
   const loaded = vm.loadProgram(sourceCode, isApp);
   if (!loaded.success) {
-    loaded.errors.forEach(e => console.error(`\x1b[31mदोषः [Line ${e.line}]: ${e.text}\x1b[0m`));
+    console.error(`\x1b[31m[दोषः] Node mock implementation cannot execute ELF binaries. Use the Rust toolchain.\x1b[0m`);
     process.exit(1);
   }
   const result = vm.run();
