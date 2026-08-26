@@ -9,16 +9,16 @@ This document contains connection details and remote automation workflows for th
 | Parameter | Value |
 | :--- | :--- |
 | **Hostname** | `WIN-T324PPV8N2B` |
-| **Local / Subnet IP** | `192.168.64.2` |
+| **Local / Subnet IP** | `192.168.64.2` / `192.168.4.31` |
 | **Public IP** | `184.57.38.218` |
 | **SSH Port** | `22` |
 | **Username** | `pkwin` |
-| **Authentication** | Passwordless SSH Key (`ed25519` / `rsa`) |
+| **Authentication** | Passwordless SSH Key (`ed25519`) |
 | **Architecture** | Windows ARM64 (`aarch64-pc-windows-msvc`) with MSVC & Clang |
 
-### Authorized Public Key
+### Authorized Public Key (ED25519)
 ```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCbfMDMMeCPdO98e8e45VwB9BMgg3gVCHEagLcECIXZrf35dYD8ZpR8SU8v+ixk4JQiz3RJJfn4A9OB4MXLgVxG0wEVPhBzlCgepSTZNepPuLQhxofqG6JAguz5JS3IpcI3WuGqsPrLcGLIhlalcZQtr/nNgG+ES4+9pbCFs5wJOoaI0s5IwY/cm48LXRPNifxRahQrrgfxWUuc7/VxhFYHdlpRMdPEb0230PAZddQLeQ7jE/s94for3XyIgf3dCr4L78cbi6SPzWpBeYjcrbyPYlovHzil3BNIsasNq4AjLJT+dR7SyHNJ/qHKvuzm+d+9TqehiSfHQIiMc7Kkvt5/
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBj3J00dZI+0SLWAQcq1h8AJQ4WhMSqZlw11pRHfKUbN pksingh@pksingh-System-Product-Name
 ```
 
 ---
@@ -27,8 +27,8 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCbfMDMMeCPdO98e8e45VwB9BMgg3gVCHEagLcECIXZ
 
 From the site agent or remote machine:
 ```bash
-# Connect using local IP or hostname
-ssh pkwin@192.168.64.2 "rustc --version && cargo --version && git --version && clang --version"
+# Connect using ED25519 key
+ssh -i ~/.ssh/id_ed25519 pkwin@192.168.4.31 "rustc --version && cargo --version && git --version && clang --version"
 ```
 
 ---
@@ -38,19 +38,10 @@ ssh pkwin@192.168.64.2 "rustc --version && cargo --version && git --version && c
 Run the following SSH command script from the agent to pull the latest SanOS source, compile release binaries, and push to the public `/site` repository:
 
 ```bash
-ssh pkwin@192.168.64.2 << 'EOF'
-  # 1. Ensure repos exist and are up-to-date
-  if [ ! -d "C:/Users/pkwin/sansos-real" ]; then
-    git clone https://github.com/paramtatv/sansos.git C:/Users/pkwin/sansos-real
-  fi
-  cd C:/Users/pkwin/sansos-real
-  git pull origin main
-
-  if [ ! -d "C:/Users/pkwin/sansos" ]; then
-    git clone https://github.com/ParamTatva-org/site.git C:/Users/pkwin/sansos
-  fi
-  cd C:/Users/pkwin/sansos
-  git pull origin main
+ssh -i ~/.ssh/id_ed25519 pkwin@192.168.4.31 << 'EOF'
+  # 1. Update repos
+  cd C:/Users/pkwin/sansos-real && git pull origin main
+  cd C:/Users/pkwin/sansos && git pull origin main
 
   # 2. Build SanOS release binaries with MSVC and Clang
   cmd.exe /c "call \"C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat\" arm64 && set CC=clang && set CXX=clang++ && set AR=llvm-ar && cd /d C:\Users\pkwin\sansos-real && cargo build --release"
@@ -72,17 +63,4 @@ ssh pkwin@192.168.64.2 << 'EOF'
   git commit -m "Automated build: update Windows binaries for SanOS toolchain" || true
   git push origin main
 EOF
-```
-
----
-
-## 4. Retrieving Binaries via SCP / SFTP
-
-To download the compiled Windows `.exe` binaries directly to the remote agent:
-```bash
-# Retrieve sadhana compiler
-scp pkwin@192.168.64.2:C:/Users/pkwin/sansos-real/target/release/sadhana.exe ./
-
-# Retrieve all Windows release binaries
-scp pkwin@192.168.64.2:C:/Users/pkwin/sansos-real/target/release/*.exe ./
 ```
